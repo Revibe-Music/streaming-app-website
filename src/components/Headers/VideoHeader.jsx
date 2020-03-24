@@ -44,7 +44,6 @@ class VideoHeader extends React.Component {
       <>
       <div className="header header-4">
         <div className="header-wrapper">
-
           <div className="page-header header-video header-filter">
             <div className="overlay" />
             <video
@@ -54,22 +53,22 @@ class VideoHeader extends React.Component {
               playsInline="playsinline"
             >
               <source
-                src={require("../../assets/img/background_video.mp4")}
+                src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"
                 type="video/mp4"
               />
             </video>
-            <Container className="text-center" style={{marginTop:800}}>
+            <Container className="text-center">
               <div className="video-text">
-                <h2 className="description">Stream all you music from</h2>
-                <h1 className="title">one app</h1>
+                <h2 className="description">Make it</h2>
+                <h1 className="title">Stand out</h1>
                 <br />
                 <Button
-                  className="btn-simple btn-primary"
+                  className="btn-simple btn-neutral"
                   color="default"
                   href="#pablo"
                   onClick={e => e.preventDefault()}
                 >
-                  Download Now
+                  Dare for more
                 </Button>
               </div>
             </Container>

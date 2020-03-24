@@ -42,6 +42,11 @@ import {
 // core components
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
+import BlogCard from "components/BlogCard/BlogCard";
+
+import RevibeAPI from 'api/revibe.js'
+
+const revibe = new RevibeAPI()
 
 class BlogPosts extends React.Component {
   constructor(props) {
@@ -53,10 +58,13 @@ class BlogPosts extends React.Component {
       windowScrollTop = 0;
     }
     this.state = {
-      transform: "translate3d(0," + windowScrollTop + "px,0)"
+      transform: "translate3d(0," + windowScrollTop + "px,0)",
+      isLoaded: false,
+      blogPosts: []
     };
   }
-  componentDidMount() {
+
+  async componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.wrapper.scrollTop = 0;
@@ -68,20 +76,36 @@ class BlogPosts extends React.Component {
       });
       window.addEventListener("scroll", this.resetTransform);
     }
+
+    var res = await revibe.getBlogPosts()
+
+    if (res.status === 200) {
+      this.setState({
+        isLoaded: true,
+        blogPosts: res.data.results
+      })
+    }
   }
+
   componentWillUnmount() {
     document.body.classList.remove("blog-posts");
     if (window.innerWidth >= 768) {
       window.removeEventListener("scroll", this.resetTransform);
     }
   }
+
   resetTransform = () => {
     var windowScrollTop = window.pageYOffset / 3;
     this.setState({
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     });
   };
+
   render() {
+    const { isLoaded, blogPosts } = this.state;
+
+    console.log(blogPosts)
+
     return (
       <>
         <ScrollNavbar />
@@ -104,7 +128,7 @@ class BlogPosts extends React.Component {
                   <Button
                     className="btn-round btn-icon"
                     color="primary"
-                    href="#pablo"
+                    href="https://twitter.com/revibemusic8"
                     onClick={e => e.preventDefault()}
                   >
                     <i className="fab fa-twitter" />
@@ -112,7 +136,7 @@ class BlogPosts extends React.Component {
                   <Button
                     className="btn-round btn-icon ml-1"
                     color="primary"
-                    href="#pablo"
+                    href="https://www.instagram.com/revibemusic8/"
                     onClick={e => e.preventDefault()}
                   >
                     <i className="fab fa-instagram" />
@@ -124,6 +148,32 @@ class BlogPosts extends React.Component {
           <div className="main main-raised">
             <Container>
               <Row>
+                {(isLoaded
+                  ? blogPosts.map((elem, index) => 
+                    <Col lg="4" md="6">
+                      {/* TODO: Finish adding all other parts of the response to the cards */}
+                      <BlogCard 
+                        href={`/blog/${elem.id}`}
+                        title={elem.title}
+                        description={elem.summary}
+                        publishDate={elem['publish_date']}
+                        thumbnail={elem.header_image}
+                      />
+                    </Col>
+                    )
+                  : 
+                    <h1>Loading...</h1>)}
+                {/* Clean this out for now <Col lg="4" md="6">
+                  <BlogCard 
+                    href="/blog/test"
+                    thumbnail={require("assets/img/steven-roe.jpg")}
+                    title="That’s One Way To Ditch Your Passenger"
+                    description="As near as we can tell, this guy must have thought he
+                    was going over backwards and tapped the rear..."
+                    publishDate="2020-03-16"
+                    author="Test Author"
+                  />
+                </Col>
                 <Col lg="4" md="6">
                   <Card className="card-blog card-plain">
                     <div className="card-image">
@@ -352,7 +402,7 @@ class BlogPosts extends React.Component {
                       </div>
                     </CardBody>
                   </Card>
-                </Col>
+                </Col>*/}
               </Row>
             </Container>
 

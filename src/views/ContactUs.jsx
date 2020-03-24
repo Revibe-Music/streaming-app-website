@@ -38,20 +38,78 @@ import {
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
 
+import { withRouter } from 'react-router-dom';
+import RevibeAPI from 'api/revibe.js';
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+const revibe = new RevibeAPI()
 
 class ContactUs extends React.Component {
-  state = {};
+  constructor(props) {
+    super(props)
+    this.state =
+    {
+        first_name: "",
+        last_name: "",
+        email: "",
+        subject: "",
+        message: ""
+    }
+  }
+
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.wrapper.scrollTop = 0;
     document.body.classList.add("contact-page");
   }
+
   componentWillUnmount() {
     document.body.classList.remove("contact-page");
   }
+
+  async onSubmit() {
+    var response = await revibe.contactUs(this.state)
+
+    if(response != undefined) {
+      MySwal.fire({
+        title: 'Thank you for contacting us!',
+        text: 'Someone from our team will get back to you soon :)',
+        icon: 'success',
+        showCloseButton: true,
+        background: "#303030"
+      })
+    } else {
+      MySwal.fire({
+        title: 'Form not submitted',
+        text: 'Please make sure all of the fields in the form are filled out',
+        icon: 'error',
+        showCloseButton: true,
+        background: "#303030"
+      })
+    }
+  }
+
+  onChange(key, value) {
+    var newState = {...this.state}
+    newState[key] = value
+    this.setState(newState)
+  }
+
   render() {
+    const SubmitButton = withRouter(({ history }) => (
+      <Button
+        className="btn-round pull-right"
+        color="primary"
+        onClick={() => this.onSubmit(history)}
+      >
+        Send Message
+      </Button>
+    ));
+
     return (
       <>
         <ScrollNavbar />
@@ -76,7 +134,7 @@ class ContactUs extends React.Component {
           <div className="main">
             <Container fluid>
               <Row className="infos mb-5">
-                <Col lg="3">
+                <Col lg="4">
                   <div className="info info-hover">
                     <div className="icon icon-primary">
                       <img
@@ -91,7 +149,7 @@ class ContactUs extends React.Component {
                     <p className="description">Baton Rouge, LA 70820</p>
                   </div>
                 </Col>
-                <Col lg="3">
+                <Col lg="4">
                   <div className="info info-hover">
                     <div className="icon icon-info">
                       <img
@@ -105,21 +163,7 @@ class ContactUs extends React.Component {
                     <p className="description">support@revibe.tech</p>
                   </div>
                 </Col>
-                <Col lg="3">
-                  <div className="info info-hover">
-                    <div className="icon icon-warning">
-                      <img
-                        alt="..."
-                        className="bg-blob"
-                        src={require("assets/img/feature-blob/warning.png")}
-                      />
-                      <i className="tim-icons icon-mobile" />
-                    </div>
-                    <h4 className="info-title">Phone Number</h4>
-                    <p className="description">+1 (318) 550-8799</p>
-                  </div>
-                </Col>
-                <Col lg="3">
+                <Col lg="4">
                   <div className="info info-hover">
                     <div className="icon icon-success">
                       <img
@@ -157,7 +201,7 @@ class ContactUs extends React.Component {
                     <CardBody>
                       <Row>
                         <Col md="6">
-                          <label>First name</label>
+                          <label>First Name</label>
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.firstNameFocus
@@ -178,12 +222,13 @@ class ContactUs extends React.Component {
                               onBlur={e =>
                                 this.setState({ firstNameFocus: false })
                               }
+                              onChange={e => this.onChange("first_name", e.target.value)}
                             />
                           </InputGroup>
                         </Col>
                         <Col md="6">
                           <FormGroup>
-                            <label>Last name</label>
+                            <label>Last Name</label>
                             <InputGroup
                               className={classnames({
                                 "input-group-focus": this.state.lastNameFocus
@@ -204,13 +249,14 @@ class ContactUs extends React.Component {
                                 onBlur={e =>
                                   this.setState({ lastNameFocus: false })
                                 }
+                                onChange={e => this.onChange("last_name", e.target.value)}
                               />
                             </InputGroup>
                           </FormGroup>
                         </Col>
                       </Row>
                       <FormGroup>
-                        <label>Email address</label>
+                        <label>Email Address</label>
                         <InputGroup
                           className={classnames({
                             "input-group-focus": this.state.emailFocus
@@ -226,26 +272,31 @@ class ContactUs extends React.Component {
                             type="text"
                             onFocus={e => this.setState({ emailFocus: true })}
                             onBlur={e => this.setState({ emailFocus: false })}
+                            onChange={e => this.onChange("email", e.target.value)}
                           />
                         </InputGroup>
                       </FormGroup>
                       <FormGroup>
-                        <label>Your message</label>
+                        <label>Subject</label>
+                        <Input
+                          placeholder="Subject Here..."
+                          type="text"
+                          onChange={e => this.onChange("subject", e.target.value)}
+                        />
+                      </FormGroup>
+                      <FormGroup>
+                        <label>Your Message</label>
                         <Input
                           id="message"
                           name="message"
                           rows="6"
                           type="textarea"
+                          onChange={e => this.onChange("message", e.target.value)}
                         />
                       </FormGroup>
                       <Row>
                         <Col className="ml-auto" md="6">
-                          <Button
-                            className="btn-round pull-right"
-                            color="primary"
-                          >
-                            Send Message
-                          </Button>
+                          <SubmitButton />
                         </Col>
                       </Row>
                     </CardBody>

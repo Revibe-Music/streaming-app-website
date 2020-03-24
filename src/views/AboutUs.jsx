@@ -276,7 +276,7 @@ class AboutUs extends React.Component {
       <>
         <ScrollNavbar />
         <div className="wrapper" ref="wrapper">
-          <div className="page-header">
+          <div className="main mt-lg mb-md">
             <Container>
               <Row className="align-items-center">
                 <Col lg="6">
@@ -327,8 +327,8 @@ class AboutUs extends React.Component {
             </Container>
             </div>
           </div>
-          <div className="cd-section" id="teams">
-            {/* ********* TEAM 1 ********* */}
+          {/*  Remove carousel for now until ready to insert  <div className="cd-section" id="teams">
+          {/* ********* TEAM 1 *********}
             <div className="team-1">
               <Container>
                 <Row>
@@ -387,8 +387,7 @@ class AboutUs extends React.Component {
                 </Row>
               </Container>
               </div>
-            </div>
-
+            </div>*/}
           <Footer />
       </>
     );

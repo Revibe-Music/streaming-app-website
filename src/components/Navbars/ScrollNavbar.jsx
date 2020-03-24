@@ -84,30 +84,29 @@ class ScrollNavbar extends React.Component {
             </div>
             <Nav className="ml-auto" navbar>
               <NavItem className="active">
-              <NavLink
-                href="/blog-posts"
-              >
-                Artist of the Week
-              </NavLink>
-              </NavItem>
-              <NavItem>
-              <NavLink
-                href="/about-us"
-              >
-                About Us
-              </NavLink>
-              </NavItem>
-
-              <NavItem>
                 <NavLink
-                  href="/contact-us"
+                  href="/blogs"
                 >
-                  Contact
+                  Blogs
                 </NavLink>
               </NavItem>
-              <Link to="/register">
-                <Button color="primary">Sign Up</Button>
-              </Link>
+              {/*<NavItem>
+                <NavLink
+                  href="/contact"
+                >
+                  Contact Us
+                </NavLink>
+              </NavItem>}*/}
+              <NavItem>
+                <NavLink
+                  href="https://artist.revibe.tech"
+                >
+                  For Artists
+                </NavLink>
+              </NavItem>
+              <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8">
+                <Button color="primary">Download</Button>
+              </a>
 
             </Nav>
             </UncontrolledCollapse>

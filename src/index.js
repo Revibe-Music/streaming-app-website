@@ -25,20 +25,24 @@ import "assets/scss/blk-design-system-pro-react.scss?v1.0.0";
 // presentation pages
 import Home from "views/Home.jsx";
 import BlogPosts from "views/BlogPosts.jsx";
+import BlogPost from "views/BlogPost.jsx";
 import AboutUs from "views/AboutUs.jsx";
 import ContactUs from "views/ContactUs.jsx";
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
+import Instagram from "views/Instagram.jsx";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/home" render={props => <Home {...props} />} />
-      <Route path="/blog-posts" render={props => <BlogPosts {...props} />} />
-      <Route path="/about-us" render={props => <AboutUs {...props} />} />
-      <Route path="/contact-us" render={props => <ContactUs {...props} />} />
-      <Route path="/login" render={props => <Login {...props} />} />
-      <Route path="/register" render={props => <Register {...props} />} />
+      <Route path="/blogs" render={props => <BlogPosts {...props} />} />
+      <Route path="/blog/:id" render={props => <BlogPost {...props} />} />
+      <Route path="/about" render={props => <AboutUs {...props} />} />
+      <Route path="/contact" render={props => <ContactUs {...props} />} />
+      <Route path="/pages/instagram" render={props => <Instagram {...props} />} />
+      {/*<Route path="/login" render={props => <Login {...props} />} />
+      <Route path="/register" render={props => <Register {...props} />} />*/}
       <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,
