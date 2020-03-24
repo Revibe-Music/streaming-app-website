@@ -35,7 +35,6 @@ import {
   InputGroup,
   Table
 } from "reactstrap";
-import Slick from "react-slick";
 import { FaUserTag, FaTshirt, FaStore, FaUser } from 'react-icons/fa'
 import { GoCloudUpload } from 'react-icons/go'
 import { DiGoogleAnalytics } from 'react-icons/di'
@@ -46,79 +45,6 @@ import VideoHeader from "components/Headers/VideoHeader.jsx";
 import PictureHeader from "components/Headers/PictureHeader.jsx";
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
-
-// custom previous button for the slick component
-const PrevButton = props => {
-  return (
-    <Button
-      className="btn-round btn-icon btn-simple slick-prev slick-arrow"
-      color="primary"
-      aria-label="Previous"
-      type="button"
-      onClick={props.onClick}
-    >
-      <i className="tim-icons icon-minimal-left" />
-    </Button>
-  );
-};
-// custom next button for the slick component
-const NextButton = props => {
-  return (
-    <Button
-      className="btn-round btn-icon btn-simple slick-next slick-arrow"
-      color="primary"
-      aria-label="Next"
-      type="button"
-    >
-      <i className="tim-icons icon-minimal-right" onClick={props.onClick} />
-    </Button>
-  );
-};
-
-let slickHeader3Settings = {
-  dots: false,
-  infinite: true,
-  centerMode: true,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  prevArrow: <PrevButton />,
-  nextArrow: <NextButton />,
-  className: "center slider slick-buttons-under",
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true
-      }
-    },
-    {
-      breakpoint: 720,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-};
 
 class Home extends React.Component {
   state = {
@@ -218,8 +144,7 @@ class Home extends React.Component {
                   <Button
                     className="mt-3"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://apps.apple.com/app/apple-store/id1500839967?mt=8"
                   >
                     Download Now <i className="tim-icons icon-double-right" />
                   </Button>
@@ -419,8 +344,7 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://artist.revibe.tech"
                   >
                     Join Revibe Artists
                   </Button>
@@ -569,8 +493,7 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer ml-md-auto mr-md-auto"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://twitter.com/revibemusic8"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
@@ -579,8 +502,7 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://facebook.com/revibemusic8"
                   >
                     <i className="fab fa-facebook-square" />
                   </Button>
@@ -609,8 +531,7 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://instagram.com/revibemusic8"
                   >
                     <i className="fab fa-instagram" />
                   </Button>
