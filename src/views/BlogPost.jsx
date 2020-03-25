@@ -102,7 +102,7 @@ export default class BlogPost extends React.Component {
                 data-parallax={true}
                 style={{
                   backgroundImage:
-                    "url(" + require("assets/img/claudia-ramirez.jpg") + ")"
+                    "url(" + (blogPost.header_image ? blogPost.header_image : require("assets/img/claudia-ramirez.jpg")) + ")"
                 }}
               />
               <Container>
@@ -145,20 +145,13 @@ export default class BlogPost extends React.Component {
                       <Col md="10">
                         <div className="blog-tags">
                           Tags:  
-                          {blogPost.tags}
+                          {blogPost.tags.map((item, key) => <Badge color="primary" className="mr-1">{item}</Badge>)}
                         </div>
                       </Col>
                       <hr />
                       <Col className="ml-auto mr-auto" md="8">
                         <Card className="card-profile profile-bg">
-                          <CardHeader
-                            style={{
-                              backgroundImage:
-                                "url(" +
-                                require("assets/img/ruvim-noga.jpg") +
-                                ")"
-                            }}
-                          >
+                          <CardHeader>
                             <div className="card-avatar">
                               <a href="#pablo" onClick={e => e.preventDefault()}>
                                 <img

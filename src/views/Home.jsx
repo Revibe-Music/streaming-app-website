@@ -45,6 +45,7 @@ import VideoHeader from "components/Headers/VideoHeader.jsx";
 import PictureHeader from "components/Headers/PictureHeader.jsx";
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
+import TikTok from "components/Icons/TikTok";
 
 class Home extends React.Component {
   state = {
@@ -69,6 +70,8 @@ class Home extends React.Component {
   }
 
   render() {
+    const isMobile = window.innerWidth < 576;
+
     return (
       <div className="wrapper" ref="wrapper">
         <div className="header header-3">
@@ -354,7 +357,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-info">
                         <div className="icon icon-white">
-                          <GoCloudUpload />
+                          <GoCloudUpload fontSize="large" />
                         </div>
                         <h4 className="info-title">Upload Tracks</h4>
                         <p className="description">
@@ -365,7 +368,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-danger info-raised">
                         <div className="icon icon-white">
-                          <FaUserTag />
+                          <FaUserTag fontSize="large" />
                         </div>
                         <h4 className="info-title">Tag Contributors</h4>
                         <p className="description">
@@ -377,7 +380,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-default">
                         <div className="icon icon-white">
-                          <DiGoogleAnalytics />
+                          <DiGoogleAnalytics fontSize="large" />
                         </div>
                         <h4 className="info-title">View Analytics</h4>
                         <p className="description">
@@ -391,7 +394,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-primary">
                         <div className="icon icon-white">
-                          <MdAttachMoney />
+                          <MdAttachMoney fontSize="large" />
                         </div>
                         <h4 className="info-title">Distribute Music</h4>
                         <p className="description">
@@ -403,7 +406,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-warning info-raised">
                         <div className="icon icon-white">
-                          <FaStore />
+                          <FaStore fontSize="large" />
                         </div>
                         <h4 className="info-title">Collaboration Marketplace</h4>
                         <p className="description">
@@ -415,7 +418,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-success">
                         <div className="icon icon-default">
-                          <FaTshirt />
+                          <FaTshirt fontSize="large" />
                         </div>
                         <h4 className="info-title text-muted">
                           Sell Merchandise
@@ -474,6 +477,7 @@ class Home extends React.Component {
                               className="btn-round"
                               color="primary"
                               type="button"
+                              onClick={e => e.preventDefault()}
                             >
                               Subscribe
                             </Button>
@@ -489,16 +493,16 @@ class Home extends React.Component {
           <div className="social-line social-line-big-icons">
             <Container>
               <Row className="d-flex justify-content-center">
-                <Col md="2">
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
                   <Button
-                    className="btn-simple btn-icon btn-footer ml-md-auto mr-md-auto"
+                    className="btn-simple btn-icon btn-footer"
                     color="primary"
                     href="https://twitter.com/revibemusic8"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
                 </Col>
-                <Col md="2">
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
@@ -507,17 +511,17 @@ class Home extends React.Component {
                     <i className="fab fa-facebook-square" />
                   </Button>
                 </Col>
-                <Col md="2">
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
                     href="#pablo"
                     onClick={e => e.preventDefault()}
                   >
-                    <i className="fab fa-spotify" />
+                    <TikTok width="24px" height="24px" color="#7248BD" />
                   </Button>
                 </Col>
-                <Col md="2">
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
@@ -527,7 +531,7 @@ class Home extends React.Component {
                     <i className="fab fa-youtube" />
                   </Button>
                 </Col>
-                <Col md="2">
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"

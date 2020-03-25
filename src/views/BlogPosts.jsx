@@ -43,6 +43,7 @@ import {
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
 import BlogCard from "components/BlogCard/BlogCard";
+import TikTok from 'components/Icons/TikTok'
 
 import RevibeAPI from 'api/revibe.js'
 
@@ -103,8 +104,12 @@ class BlogPosts extends React.Component {
 
   render() {
     const { isLoaded, blogPosts } = this.state;
+    const isMobile = window.innerWidth < 576;
 
     console.log(blogPosts)
+
+    if(isLoaded)
+      blogPosts.sort((a, b) => new Date(b.publish_date) - new Date(a.publish_date))
 
     return (
       <>
@@ -406,87 +411,17 @@ class BlogPosts extends React.Component {
               </Row>
             </Container>
 
-            <div className="title text-center">
-              <h3>Show us some love</h3>
-            </div>
-            <div className="social-line social-line-big-icons">
+            <div className="subscribe-line subscribe-line-white">
               <Container>
                 <Row>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-footer"
-                      color="twitter"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter" />
-                    </Button>
+                  <Col lg="6">
+                    <h4 className="title">Subscribe to our Mailing List!</h4>
+                    <p className="description">
+                      Join our mailing list for new music, playlists, and artist interviews!
+                    </p>
                   </Col>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-footer"
-                      color="facebook"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                  </Col>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-footer"
-                      color="google"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-google-plus" />
-                    </Button>
-                  </Col>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-footer"
-                      color="dribbble"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-dribbble" />
-                    </Button>
-                  </Col>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-footer"
-                      color="youtube"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-youtube" />
-                    </Button>
-                  </Col>
-                  <Col md="2">
-                    <Button
-                      className="btn-icon btn-simple btn-instagram btn-footer"
-                      color="default"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram" />
-                    </Button>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-            <div className="subscribe-line">
-              <Container>
-                <Row>
-                  <Col className="ml-auto mr-auto" lg="8" xs="10">
-                    <div className="text-center">
-                      <h4 className="title">Subscribe to our Newsletter</h4>
-                      <p className="description">
-                        Join our newsletter and get news in your inbox every
-                        week! We hate spam too, so no worries about this.
-                      </p>
-                    </div>
-                    <Card className="card-raised card-form-horizontal">
+                  <Col lg="6">
+                    <Card className="card-plain card-form-horizontal">
                       <CardBody>
                         <Form action="" method="">
                           <Row>
@@ -503,7 +438,7 @@ class BlogPosts extends React.Component {
                                 </InputGroupAddon>
                                 <Input
                                   placeholder="Your Email..."
-                                  type="email"
+                                  type="text"
                                   onFocus={e =>
                                     this.setState({ emailFocus: true })
                                   }
@@ -514,7 +449,13 @@ class BlogPosts extends React.Component {
                               </InputGroup>
                             </Col>
                             <Col sm="4">
-                              <Button block color="primary" type="button">
+                              <Button
+                                block
+                                className="btn-round"
+                                color="primary"
+                                type="button"
+                                onClick={e => e.preventDefault()}
+                              >
                                 Subscribe
                               </Button>
                             </Col>
@@ -522,6 +463,59 @@ class BlogPosts extends React.Component {
                         </Form>
                       </CardBody>
                     </Card>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+            <div className="social-line social-line-big-icons mb-md">
+              <Container>
+                <Row className="d-flex justify-content-center">
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
+                      href="https://twitter.com/revibemusic8"
+                    >
+                      <i className="fab fa-twitter" />
+                    </Button>
+                  </Col>
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
+                      href="https://facebook.com/revibemusic8"
+                    >
+                      <i className="fab fa-facebook-square" />
+                    </Button>
+                  </Col>
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
+                      href="#pablo"
+                      onClick={e => e.preventDefault()}
+                    >
+                      <TikTok width="24px" height="24px" color="#7248BD" />
+                    </Button>
+                  </Col>
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
+                      href="#pablo"
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className="fab fa-youtube" />
+                    </Button>
+                  </Col>
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
+                      href="https://instagram.com/revibemusic8"
+                    >
+                      <i className="fab fa-instagram" />
+                    </Button>
                   </Col>
                 </Row>
               </Container>
