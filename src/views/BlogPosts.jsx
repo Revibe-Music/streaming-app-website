@@ -163,6 +163,7 @@ class BlogPosts extends React.Component {
                         description={elem.summary}
                         publishDate={elem['publish_date']}
                         thumbnail={elem.header_image}
+                        author={elem.author}
                       />
                     </Col>
                     )

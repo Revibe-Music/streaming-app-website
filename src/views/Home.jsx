@@ -87,7 +87,7 @@ class Home extends React.Component {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto" md="8">
-                  <h1 className="title">Never switch between music apps again</h1>
+                  <h1 className="title">Never switch between music apps again.</h1>
                 </Col>
               </Row>
               <Row>
@@ -139,7 +139,7 @@ class Home extends React.Component {
             <Container>
               <Row className="align-items-center">
                 <Col className="mr-auto text-left" lg="3">
-                  <h1 className="title">Your Music, Your Way</h1>
+                  <h1 className="title">Your Music&#8212;Your Way</h1>
                   <p className="description">
                     Revibe Music is built for music lovers and has all the features
                     you need to enjoy the music you want.
@@ -149,7 +149,7 @@ class Home extends React.Component {
                     color="primary"
                     href="https://apps.apple.com/app/apple-store/id1500839967?mt=8"
                   >
-                    Download Now <i className="tim-icons icon-double-right" />
+                    Download Now <i className="tim-icons icon-minimal-right" />
                   </Button>
                 </Col>
                 <Col className="p-sm-0" lg="8">
@@ -216,13 +216,13 @@ class Home extends React.Component {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="6">
-                  <h2 className="title mb-4 mt-5">Frequently Asked Questions</h2>
+                  <h1 className="title mb-4 mt-5">Frequently Asked Questions</h1>
                   <div className="section-space" />
                 </Col>
               </Row>
               <Row>
                 <Col className="ml-auto" md="12">
-                  <div className="accordion">
+                  <div className="accordion mt-2 mb-sm">
                     <Card>
                       <CardHeader>
                         <h5 className="mb-0">
@@ -357,18 +357,20 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-info">
                         <div className="icon icon-white">
-                          <GoCloudUpload fontSize="large" />
+                          <GoCloudUpload fontSize="30px" />
                         </div>
                         <h4 className="info-title">Upload Tracks</h4>
                         <p className="description">
                           Host your tracks on our servers to be streamed for free on the Revibe Music app.
                         </p>
+                        <br/>
+                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
                       <div className="info text-left bg-danger info-raised">
                         <div className="icon icon-white">
-                          <FaUserTag fontSize="large" />
+                          <FaUserTag fontSize="30px" />
                         </div>
                         <h4 className="info-title">Tag Contributors</h4>
                         <p className="description">
@@ -380,7 +382,7 @@ class Home extends React.Component {
                     <Col lg="4" md="4">
                       <div className="info text-left bg-default">
                         <div className="icon icon-white">
-                          <DiGoogleAnalytics fontSize="large" />
+                          <DiGoogleAnalytics fontSize="30px" />
                         </div>
                         <h4 className="info-title">View Analytics</h4>
                         <p className="description">
@@ -393,38 +395,38 @@ class Home extends React.Component {
                   <Row>
                     <Col lg="4" md="4">
                       <div className="info text-left bg-primary">
-                        <div className="icon icon-white">
-                          <MdAttachMoney fontSize="large" />
-                        </div>
-                        <h4 className="info-title">Distribute Music</h4>
+                        <MdAttachMoney className="icon icon-white" fontSize="30px" />
+                        <p className="description float-right"><bold>Coming Soon!</bold></p>
+                        <h4 className="info-title">Digital Distribution</h4>
                         <p className="description">
-                          Coming Soon! Distribute your music to streaming services
+                          Distribute your music to streaming services
                           like Spotify to generate royalties from your music.
                         </p>
+                        <br/>
+                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
                       <div className="info text-left bg-warning info-raised">
-                        <div className="icon icon-white">
-                          <FaStore fontSize="large" />
-                        </div>
-                        <h4 className="info-title">Collaboration Marketplace</h4>
+                        <FaStore className="icon icon-white" fontSize="30px" />
+                        <p className="description float-right"><bold>Coming Soon!</bold></p>
+                        <h4 className="info-title">Marketplace</h4>
                         <p className="description">
-                          Coming Soon! Buy and sell beats, cover art, features,
+                          Buy and sell beats, cover art, features,
                           engineering services, and more on our collaboration marketplace. 
                         </p>
+                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
                       <div className="info text-left bg-success">
-                        <div className="icon icon-default">
-                          <FaTshirt fontSize="large" />
-                        </div>
+                        <FaTshirt className="icon icon-white" fontSize="30px" />
+                        <p className="description float-right"><bold>Coming Soon!</bold> </p>
                         <h4 className="info-title text-muted">
-                          Sell Merchandise
+                          Sell Merch
                         </h4>
                         <p className="description text-muted">
-                          Coming Soon! Upload a design and begin selling!
+                          Upload a design and begin selling!
                           On demand, drop shipped merchandise means no up front costs and no oder processing on your end.
                         </p>
                       </div>
@@ -440,7 +442,7 @@ class Home extends React.Component {
                 <Col lg="6">
                   <h4 className="title">Subscribe to our Mailing List!</h4>
                   <p className="description">
-                    Join our mailing list for new music, playlists, and artist interviews!
+                    Join our mailing list for new music, playlists, artist interviews, and more!
                   </p>
                 </Col>
                 <Col lg="6">
@@ -497,6 +499,15 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
+                    href="https://instagram.com/revibemusic8"
+                  >
+                    <i className="fab fa-instagram" />
+                  </Button>
+                </Col>
+                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                  <Button
+                    className="btn-simple btn-icon btn-footer"
+                    color="primary"
                     href="https://twitter.com/revibemusic8"
                   >
                     <i className="fab fa-twitter" />
@@ -529,15 +540,6 @@ class Home extends React.Component {
                     onClick={e => e.preventDefault()}
                   >
                     <i className="fab fa-youtube" />
-                  </Button>
-                </Col>
-                <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
-                  <Button
-                    className="btn-simple btn-icon btn-footer"
-                    color="primary"
-                    href="https://instagram.com/revibemusic8"
-                  >
-                    <i className="fab fa-instagram" />
                   </Button>
                 </Col>
               </Row>

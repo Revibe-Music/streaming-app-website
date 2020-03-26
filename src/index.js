@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 // styles
 import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-pro-react.scss?v1.0.0";
+import "assets/css/revibe.css";
 
 // presentation pages
 import Home from "views/Home.jsx";

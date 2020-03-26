@@ -105,7 +105,7 @@ class ScrollNavbar extends React.Component {
                 </NavLink>
               </NavItem>
               <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8">
-                <Button color="primary">Download</Button>
+                <Button color="primary">Download <i className="tim-icons icon-minimal-right" /></Button>
               </a>
 
             </Nav>

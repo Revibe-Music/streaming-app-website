@@ -20,7 +20,10 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardTitle
+  CardTitle,
+  Container,
+  Row,
+  Col
 } from "reactstrap";
 
 export default class BlogCard extends React.Component {
@@ -52,21 +55,31 @@ export default class BlogCard extends React.Component {
               {this.props.title}
             </a>
           </CardTitle>
-          <p className="card-description">
-            {this.props.description ? this.props.description : "UH OH! Somebody forgot to include the damn summary!"}
-          </p>
+          <div style={{ height: "50px" }}>
+            <p className="card-description">
+              {this.props.description ? this.props.description : "UH OH! Somebody forgot to include the damn summary!"}
+            </p>
+          </div>
           <CardFooter>
-            {this.props.author ? <div className="author">
-              {this.props.authorImg ? <img
-                alt="..."
-                className="avatar img-raised"
-                src={this.props.authorImg}
-              /> : null}
-              <span className="ml-1">{this.props.author}</span>
-            </div> : null}
-            {this.props.publishDate ? <div className="stats stats-right">
-              <i className="tim-icons icon-calendar-60" />{`${date.toLocaleString('default', { month: 'short' })} ${date.getUTCDate()}, ${date.getUTCFullYear()}`}
-            </div> : null}
+            <Container>
+              <Row style={{ width: "100%" }}>
+                <Col md="6" xs="6" className="pl-0 pr-0 align-top">
+                  {this.props.author ? <div className="author mt-1">
+                    {this.props.authorImg ? <img
+                      alt="..."
+                      className="avatar img-raised"
+                      src={this.props.authorImg}
+                    /> : null}
+                    <span className={`${this.props.authorImg ? "ml-1" : ""}`}>{this.props.author}</span>
+                  </div> : null}
+                </Col>
+                <Col md="6" xs="6" className="pl-0 pr-0 ml-auto">
+                  {this.props.publishDate ? <div className="stats stats-right">
+                    <i className="tim-icons icon-calendar-60 mb-1" />{`${date.toLocaleString('default', { month: 'short' })} ${date.getUTCDate()}, ${date.getUTCFullYear()}`}
+                  </div> : null}
+                </Col>
+              </Row>
+            </Container>
           </CardFooter>
         </CardBody>
       </Card>

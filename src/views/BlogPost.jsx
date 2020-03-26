@@ -108,16 +108,16 @@ export default class BlogPost extends React.Component {
               <Container>
                 <Row>
                   <Col className="ml-auto mr-auto text-center" md="8">
-                    <h1 className="title">{blogPost.title}</h1>
-                    <div className="author">
+                    <h1 className="title" style={{ fontFamily:"FuturaHeavy", fontSize:"3rem" }}>{blogPost.title}</h1>
+                    {/*<div className="author">
                       <img
                         alt="..."
                         className="avatar img-raised"
                         src={require("assets/img/p10.jpg")}
                       />
-                    </div>
+                    </div>*/}
                     <br />
-                  <h4 className="description">{blogPost.author ? blogPost.author : "No Author"}</h4>
+                    <h4 className="description">{blogPost.author ? blogPost.author : "No Author"}</h4>
                   </Col>
                 </Row>
               </Container>
@@ -149,7 +149,7 @@ export default class BlogPost extends React.Component {
                         </div>
                       </Col>
                       <hr />
-                      <Col className="ml-auto mr-auto" md="8">
+                      {/* Author Card <Col className="ml-auto mr-auto" md="8">
                         <Card className="card-profile profile-bg">
                           <CardHeader>
                             <div className="card-avatar">
@@ -210,7 +210,7 @@ export default class BlogPost extends React.Component {
                             </div>
                           </CardFooter>
                         </Card>
-                      </Col>
+                      </Col>*/}
                     </Row>
                   </Col>
                 </Row>

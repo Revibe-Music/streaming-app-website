@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "FuturaDemi";
+  src: url("../fonts/FuturaPTDemi.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaHeavy";
+  src: url("../fonts/FuturaPTHeavy.otf");
+  font-weight: normal;
+  font-style: normal;
+}

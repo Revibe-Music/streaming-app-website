@@ -37,9 +37,40 @@ class Footer extends React.Component {
           <Container>
             <Row>
               <Col md="3">
-                <h1 className="title">Revibe</h1>
+                <h1 className="title mt-sm mb-2">Revibe</h1>
               </Col>
-              <Col md="3" xs="6">
+              <Col md="6" xs="12">
+                <Nav className="pull-center">
+                  <ul>
+                    <li>
+                      <NavLink to="/home" tag={Link}>
+                        Home
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/about" tag={Link} className="ml-1">
+                        About Us
+                      </NavLink>
+                    </li>
+                    <li>
+                      <a href="https://artist.revibe.tech" className="ml-1">
+                        For Artists
+                      </a>
+                    </li>
+                    <li>
+                      <NavLink to="/contact" tag={Link} className="ml-1">
+                        Contact Us
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/blogs" tag={Link} className="ml-1">
+                        Blog
+                      </NavLink>
+                    </li>
+                  </ul>
+                </Nav>
+              </Col>
+              {/*<Col md="3" xs="6">
                 <Nav>
                   <NavItem>
                     <NavLink to="/home" tag={Link}>
@@ -74,11 +105,11 @@ class Footer extends React.Component {
                     <NavLink to="/register" tag={Link}>
                       Register
                     </NavLink>
-                  </NavItem>*/}
+                  </NavItem>}
                 </Nav>
-              </Col>
+              </Col>*/}
               <Col md="3">
-                <h3 className="title">Follow us:</h3>
+                <h3 className="title mt-3 mb-2">Follow us:</h3>
                 <div className="btn-wrapper profile text-left">
                   <Button
                     className="btn-icon btn-neutral btn-round btn-simple"
