@@ -11,3 +11,13 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/*    Custom CSS Elements      */
+.accordion-1 .accordion .card.custom-accordion { 
+  background-color: transparent; 
+  border: 1px solid #7248BD !important; 
+}
+
+.accordion-1 .accordion .card.custom-accordion.other-cards {
+  border-top: 0 !important;
+}

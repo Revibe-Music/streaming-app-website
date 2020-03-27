@@ -94,11 +94,6 @@ class Home extends React.Component {
                 <Col md="4">
                   <div className="info info-hover">
                     <div className="icon icon-primary">
-                      <img
-                        alt="..."
-                        className="bg-blob"
-                        src={require("assets/img/feature-blob/primary.png")}
-                      />
                       <i className="tim-icons icon-zoom-split" />
                     </div>
                     <h4 className="info-title">One search bar to find music on any service</h4>
@@ -107,11 +102,6 @@ class Home extends React.Component {
                 <Col md="4">
                   <div className="info info-hover">
                     <div className="icon icon-success">
-                      <img
-                        alt="..."
-                        className="bg-blob"
-                        src={require("assets/img/feature-blob/success.png")}
-                      />
                       <i className="tim-icons icon-bullet-list-67" />
                     </div>
                     <h4 className="info-title">Cross platform playlists with all your favorite songs</h4>
@@ -120,11 +110,6 @@ class Home extends React.Component {
                 <Col md="4">
                   <div className="info info-hover">
                     <div className="icon icon-warning">
-                      <img
-                        alt="..."
-                        className="bg-blob"
-                        src={require("assets/img/feature-blob/warning.png")}
-                      />
                       <i className="tim-icons icon-sound-wave" />
                     </div>
                     <h4 className="info-title">Queue songs from any source without interruption</h4>
@@ -144,13 +129,27 @@ class Home extends React.Component {
                     Revibe Music is built for music lovers and has all the features
                     you need to enjoy the music you want.
                   </p>
-                  <Button
-                    className="mt-3"
-                    color="primary"
-                    href="https://apps.apple.com/app/apple-store/id1500839967?mt=8"
-                  >
-                    Download Now <i className="tim-icons icon-minimal-right" />
-                  </Button>
+                  {!isMobile ? 
+                    <Button
+                      className="mt-3"
+                      color="primary"
+                      href="https://apps.apple.com/app/apple-store/id1500839967?mt=8"
+                      target="_blank"
+                    >
+                      Download Now <i className="tim-icons icon-minimal-right" />
+                    </Button>
+                    :
+                    <div style={{ width: "100%" }} className="d-flex justify-content-center">
+                      <Button
+                        className="mt-3 ml-auto mr-auto"
+                        color="primary"
+                        href="https://apps.apple.com/app/apple-store/id1500839967?mt=8"
+                        target="_blank"
+                      >
+                        Download Now <i className="tim-icons icon-minimal-right" />
+                      </Button>
+                    </div>
+                  }
                 </Col>
                 <Col className="p-sm-0" lg="8">
                   <Row>
@@ -223,11 +222,11 @@ class Home extends React.Component {
               <Row>
                 <Col className="ml-auto" md="12">
                   <div className="accordion mt-2 mb-sm">
-                    <Card>
+                    <Card className="custom-accordion">
                       <CardHeader>
                         <h5 className="mb-0">
                           <Button
-                            className="w-100 text-left"
+                            className="w-100 text-left text-primary"
                             color="link"
                             aria-expanded={this.state.collapse === 1}
                             onClick={() => this.openCollapse(1)}
@@ -238,17 +237,17 @@ class Home extends React.Component {
                         </h5>
                       </CardHeader>
                       <Collapse isOpen={this.state.collapse === 1}>
-                        <CardBody>
+                        <CardBody className="text-white">
                           Nothing! Revibe Music is free and always will be.
                           For the best experience, connect your premium Spotify account.
                         </CardBody>
                       </Collapse>
                     </Card>
-                    <Card>
+                    <Card className="custom-accordion other-cards">
                       <CardHeader>
                         <h5 className="mb-0">
                           <Button
-                            className="w-100 text-left "
+                            className="w-100 text-left text-primary"
                             color="link"
                             aria-expanded={this.state.collapse === 2}
                             onClick={() => this.openCollapse(2)}
@@ -259,16 +258,16 @@ class Home extends React.Component {
                         </h5>
                       </CardHeader>
                       <Collapse isOpen={this.state.collapse === 2}>
-                        <CardBody>
+                        <CardBody className="text-white">
                           It's okay! You can still use Revibe to stream our uploads and YouTube's catalog.
                         </CardBody>
                       </Collapse>
                     </Card>
-                    <Card>
+                    <Card className="custom-accordion other-cards">
                       <CardHeader>
                         <h5 className="mb-0">
                           <Button
-                            className="w-100 text-left "
+                            className="w-100 text-left text-primary"
                             color="link"
                             aria-expanded={this.state.collapse === 3}
                             onClick={() => this.openCollapse(3)}
@@ -279,17 +278,17 @@ class Home extends React.Component {
                         </h5>
                       </CardHeader>
                       <Collapse isOpen={this.state.collapse === 3}>
-                        <CardBody>
+                        <CardBody className="text-white">
                           Revibe Music currently supports Spotify, with Apple Music coming soon.
                           If you would like us to add any other services, please let us know here.
                         </CardBody>
                       </Collapse>
                     </Card>
-                    <Card>
+                    <Card className="custom-accordion other-cards">
                       <CardHeader>
                         <h5 className="mb-0">
                           <Button
-                            className="w-100 text-left"
+                            className="w-100 text-left text-primary"
                             color="link"
                             aria-expanded={this.state.collapse === 4}
                             onClick={() => this.openCollapse(4)}
@@ -300,18 +299,18 @@ class Home extends React.Component {
                         </h5>
                       </CardHeader>
                       <Collapse isOpen={this.state.collapse === 4}>
-                        <CardBody>
+                        <CardBody className="text-white">
                           Unfortunately YouTube videos cannot be played in the background in accordance with their terms of service.
                           To provide a smooth user experience Revibe Music offers a setting to skip
                           YouTube videos when shufﬂing or playing a playlist if the device is locked.
                         </CardBody>
                       </Collapse>
                     </Card>
-                    <Card>
+                    <Card className="custom-accordion other-cards">
                       <CardHeader>
                         <h5 className="mb-0">
                           <Button
-                            className="w-100 text-left"
+                            className="w-100 text-left text-primary"
                             color="link"
                             aria-expanded={this.state.collapse === 5}
                             onClick={() => this.openCollapse(5)}
@@ -322,7 +321,7 @@ class Home extends React.Component {
                         </h5>
                       </CardHeader>
                       <Collapse isOpen={this.state.collapse === 5}>
-                        <CardBody>
+                        <CardBody className="text-white">
                           If you are an artist you can upload your music to Revibe,
                           view analytics, and more on Revibe Artists!
                         </CardBody>
@@ -344,18 +343,32 @@ class Home extends React.Component {
                     If you are an independent musician, or thinking about making your ﬁrst song, you need to be on Revibe Artists.
                     We make the music business as simple as possible so you can spend more time making music.
                   </p>
+                  {!isMobile ? 
                   <Button
                     className="btn-simple"
                     color="primary"
                     href="https://artist.revibe.tech"
+                    target="_blank"
                   >
                     Join Revibe Artists
                   </Button>
+                    :
+                  <div style={{ width: "100%" }} className="d-flex justify-content-center">
+                    <Button
+                      className="btn-simple ml-auto mr-auto"
+                      color="primary"
+                      href="https://artist.revibe.tech"
+                      target="_blank"
+                    >
+                      Join Revibe Artists
+                    </Button>
+                  </div>
+                  }
                 </Col>
                 <Col lg="8" md="12">
                   <Row>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-info">
+                      <div className="info text-left bg-info" style={{ height: "320px" }}>
                         <div className="icon icon-white">
                           <GoCloudUpload fontSize="30px" />
                         </div>
@@ -363,12 +376,10 @@ class Home extends React.Component {
                         <p className="description">
                           Host your tracks on our servers to be streamed for free on the Revibe Music app.
                         </p>
-                        <br/>
-                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-danger info-raised">
+                      <div className="info text-left bg-danger info-raised" style={{ height: "320px" }}>
                         <div className="icon icon-white">
                           <FaUserTag fontSize="30px" />
                         </div>
@@ -380,7 +391,7 @@ class Home extends React.Component {
                       </div>
                     </Col>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-default">
+                      <div className="info text-left bg-default" style={{ height: "320px" }}>
                         <div className="icon icon-white">
                           <DiGoogleAnalytics fontSize="30px" />
                         </div>
@@ -394,7 +405,7 @@ class Home extends React.Component {
                   </Row>
                   <Row>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-primary">
+                      <div className="info text-left bg-primary" style={{ height: "320px" }}>
                         <MdAttachMoney className="icon icon-white" fontSize="30px" />
                         <p className="description float-right"><bold>Coming Soon!</bold></p>
                         <h4 className="info-title">Digital Distribution</h4>
@@ -402,12 +413,10 @@ class Home extends React.Component {
                           Distribute your music to streaming services
                           like Spotify to generate royalties from your music.
                         </p>
-                        <br/>
-                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-warning info-raised">
+                      <div className="info text-left bg-warning info-raised" style={{ height: "320px" }}>
                         <FaStore className="icon icon-white" fontSize="30px" />
                         <p className="description float-right"><bold>Coming Soon!</bold></p>
                         <h4 className="info-title">Marketplace</h4>
@@ -415,11 +424,10 @@ class Home extends React.Component {
                           Buy and sell beats, cover art, features,
                           engineering services, and more on our collaboration marketplace. 
                         </p>
-                        <br/>
                       </div>
                     </Col>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-success">
+                      <div className="info text-left bg-success" style={{ height: "320px" }}>
                         <FaTshirt className="icon icon-white" fontSize="30px" />
                         <p className="description float-right"><bold>Coming Soon!</bold> </p>
                         <h4 className="info-title text-muted">
@@ -500,6 +508,7 @@ class Home extends React.Component {
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
                     href="https://instagram.com/revibemusic8"
+                    target="_blank"
                   >
                     <i className="fab fa-instagram" />
                   </Button>
@@ -509,6 +518,7 @@ class Home extends React.Component {
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
                     href="https://twitter.com/revibemusic8"
+                    target="_blank"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
@@ -518,6 +528,7 @@ class Home extends React.Component {
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
                     href="https://facebook.com/revibemusic8"
+                    target="_blank"
                   >
                     <i className="fab fa-facebook-square" />
                   </Button>
@@ -526,8 +537,8 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://vm.tiktok.com/GYQojE/"
+                    target="_blank"
                   >
                     <TikTok width="24px" height="24px" color="#7248BD" />
                   </Button>
@@ -536,8 +547,8 @@ class Home extends React.Component {
                   <Button
                     className="btn-simple btn-icon btn-footer"
                     color="primary"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    href="https://www.youtube.com/channel/UCGSz0umIQ-xCKB8UsGKDK3A"
+                    target="_blank"
                   >
                     <i className="fab fa-youtube" />
                   </Button>

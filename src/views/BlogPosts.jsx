@@ -134,7 +134,7 @@ class BlogPosts extends React.Component {
                     className="btn-round btn-icon"
                     color="primary"
                     href="https://twitter.com/revibemusic8"
-                    onClick={e => e.preventDefault()}
+                    target="_blank"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
@@ -142,7 +142,7 @@ class BlogPosts extends React.Component {
                     className="btn-round btn-icon ml-1"
                     color="primary"
                     href="https://www.instagram.com/revibemusic8/"
-                    onClick={e => e.preventDefault()}
+                    target="_blank"
                   >
                     <i className="fab fa-instagram" />
                   </Button>
@@ -475,7 +475,18 @@ class BlogPosts extends React.Component {
                     <Button
                       className="btn-simple btn-icon btn-footer"
                       color="primary"
+                      href="https://instagram.com/revibemusic8"
+                      target="_blank"
+                    >
+                      <i className="fab fa-instagram" />
+                    </Button>
+                  </Col>
+                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
+                    <Button
+                      className="btn-simple btn-icon btn-footer"
+                      color="primary"
                       href="https://twitter.com/revibemusic8"
+                      target="_blank"
                     >
                       <i className="fab fa-twitter" />
                     </Button>
@@ -485,6 +496,7 @@ class BlogPosts extends React.Component {
                       className="btn-simple btn-icon btn-footer"
                       color="primary"
                       href="https://facebook.com/revibemusic8"
+                      target="_blank"
                     >
                       <i className="fab fa-facebook-square" />
                     </Button>
@@ -493,8 +505,8 @@ class BlogPosts extends React.Component {
                     <Button
                       className="btn-simple btn-icon btn-footer"
                       color="primary"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      href="https://vm.tiktok.com/GYQojE/"
+                      target="_blank"
                     >
                       <TikTok width="24px" height="24px" color="#7248BD" />
                     </Button>
@@ -503,19 +515,10 @@ class BlogPosts extends React.Component {
                     <Button
                       className="btn-simple btn-icon btn-footer"
                       color="primary"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      href="https://www.youtube.com/channel/UCGSz0umIQ-xCKB8UsGKDK3A"
+                      target="_blank"
                     >
                       <i className="fab fa-youtube" />
-                    </Button>
-                  </Col>
-                  <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>
-                    <Button
-                      className="btn-simple btn-icon btn-footer"
-                      color="primary"
-                      href="https://instagram.com/revibemusic8"
-                    >
-                      <i className="fab fa-instagram" />
                     </Button>
                   </Col>
                 </Row>

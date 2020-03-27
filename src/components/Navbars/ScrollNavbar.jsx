@@ -100,11 +100,12 @@ class ScrollNavbar extends React.Component {
               <NavItem>
                 <NavLink
                   href="https://artist.revibe.tech"
+                  target="_blank"
                 >
                   For Artists
                 </NavLink>
               </NavItem>
-              <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8">
+              <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8" target="_blank">
                 <Button color="primary">Download <i className="tim-icons icon-minimal-right" /></Button>
               </a>
 

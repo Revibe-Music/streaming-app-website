@@ -53,7 +53,7 @@ class Footer extends React.Component {
                       </NavLink>
                     </li>
                     <li>
-                      <a href="https://artist.revibe.tech" className="ml-1">
+                      <a href="https://artist.revibe.tech" target="_blank" className="ml-1">
                         For Artists
                       </a>
                     </li>
