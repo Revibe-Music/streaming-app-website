@@ -74,7 +74,7 @@ export default class PictureHeader extends React.Component {
             :
             <Row className="mt-auto">
               <Col md="7" xs="14" className="text-center">
-                <h4 className="title mb-1 mt-4 ml-1 mr-1" style={{ fontFamily: "FuturaHeavy" }}>Stream Spotify, YouTube, and Revibe.</h4>
+                <h4 className="title mb-1 mt-4" style={{ fontFamily: "FuturaHeavy" }}>Stream Spotify, YouTube, and Revibe.</h4>
                 <h4 className="title mb-1 mt-1" style={{ fontFamily: "FuturaHeavy" }}>Share music with friends.</h4>
                 <h4 className="title mt-1 mb-4" style={{ fontFamily: "FuturaHeavy" }}>Support local artists.</h4>
               </Col>

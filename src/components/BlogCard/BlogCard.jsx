@@ -25,31 +25,53 @@ import {
   Row,
   Col
 } from "reactstrap";
+import truncate from "truncate";
 
 export default class BlogCard extends React.Component {
   constructor(props) {
     super(props)
   }
 
+  getTypeFromDisplayStyle(style) {
+    switch(style) {
+      case 1: {
+        return {
+          tag: "Artist of the Week",
+          color: "info"
+        }
+      }
+      default: {
+        return {
+          tag: "Blog",
+          color: "primary"
+        }
+      }
+    }
+  }
+
   render() {
-    var date
+    var date, tag
 
     if(this.props.publishDate)
       date = new Date(this.props.publishDate)
 
+    if(this.props.displayStyle)
+      tag = this.getTypeFromDisplayStyle(this.props.displayStyle)
+
     return (
       <Card className="card-blog card-plain">
-        <div className="card-image" style={{height: "350px", width: "350px"}}>
+        <div className="card-image" style={{height: "350px", width: "350px", overflow: "hidden"}}>
           <a href={this.props.href}>
             <img
               alt="..."
               className="img rounded"
               src={this.props.thumbnail ? this.props.thumbnail : require("assets/img/steven-roe.jpg")}
+              style={{width: "auto", height: "auto"}}
             />
           </a>
         </div>
         <CardBody>
-          <h6 className={`category text-${(this.props.tagColor ? this.props.tagColor : "primary")}`}>{this.props.tag ? this.props.tag : "Blog"}</h6>
+          <h6 className={`category text-${tag.color}`}>{tag.tag}</h6>
           <CardTitle tag="h4">
             <a href={this.props.href}>
               {this.props.title}
@@ -57,7 +79,7 @@ export default class BlogCard extends React.Component {
           </CardTitle>
           <div style={{ height: "50px" }}>
             <p className="card-description">
-              {this.props.description ? this.props.description : "UH OH! Somebody forgot to include the damn summary!"}
+              {this.props.description ? truncate(this.props.description, 144) : "UH OH! Somebody forgot to include the damn summary!"}
             </p>
           </div>
           <CardFooter>

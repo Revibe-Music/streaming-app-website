@@ -29,6 +29,8 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
+import TikTok from "../Icons/TikTok";
+
 class Footer extends React.Component {
   render() {
     return (
@@ -37,7 +39,9 @@ class Footer extends React.Component {
           <Container>
             <Row>
               <Col md="3">
-                <h1 className="title mt-sm mb-2">Revibe</h1>
+                <NavLink to="/home" tag={Link}>
+                  <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 175 }} className="mt-4" />
+                </NavLink>
               </Col>
               <Col md="6" xs="12">
                 <Nav className="pull-center">
@@ -47,11 +51,11 @@ class Footer extends React.Component {
                         Home
                       </NavLink>
                     </li>
-                    <li>
+                    {/*<li>
                       <NavLink to="/about" tag={Link} className="ml-1">
                         About Us
                       </NavLink>
-                    </li>
+                    </li>*/}
                     <li>
                       <a href="https://artist.revibe.tech" target="_blank" className="ml-1">
                         For Artists
@@ -115,37 +119,63 @@ class Footer extends React.Component {
                     className="btn-icon btn-neutral btn-round btn-simple"
                     color="default"
                     href="https://twitter.com/revibemusic8"
-                    id="tooltip39661217"
+                    id="tooltip-twitter"
                     target="_blank"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip39661217">
-                    Follow us
+                  <UncontrolledTooltip delay={0} target="tooltip-twitter">
+                    Twitter
                   </UncontrolledTooltip>
                   <Button
                     className="btn-icon btn-neutral btn-round btn-simple ml-1"
                     color="default"
                     href="https://www.facebook.com/revibemusic8"
-                    id="tooltip206037619"
+                    id="tooltip-fb"
                     target="_blank"
                   >
                     <i className="fab fa-facebook-square" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip206037619">
-                    Like us
+                  <UncontrolledTooltip delay={0} target="tooltip-fb">
+                    Facebook
                   </UncontrolledTooltip>
                   <Button
                     className="btn-icon btn-neutral btn-round btn-simple ml-1"
                     color="default"
                     href="https://instagram.com/revibemusic8"
-                    id="tooltip750293512"
+                    id="tooltip-insta"
                     target="_blank"
                   >
                     <i className="fab fa-instagram" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip750293512">
-                    Follow us
+                  <UncontrolledTooltip delay={0} target="tooltip-insta">
+                    Instagram
+                  </UncontrolledTooltip>                  
+                  <Button
+                    className="btn-icon btn-neutral btn-round btn-simple ml-1"
+                    color="default"
+                    href="https://vm.tiktok.com/GYQojE/"
+                    id="tooltip-tiktok"
+                    target="_blank"
+                  >
+                    <div style={{ width: "100%", height: "100%" }} className="d-flex justify-content-center align-items-center">
+                      <TikTok width="16px" height="16px" color="#ffffff" />
+                    </div>
+                  </Button>
+                  <UncontrolledTooltip delay={0} target="tooltip-tiktok">
+                    TikTok
+                  </UncontrolledTooltip>
+                  <Button
+                    className="btn-icon btn-neutral btn-round btn-simple ml-1"
+                    color="default"
+                    href="https://www.youtube.com/channel/UCGSz0umIQ-xCKB8UsGKDK3A"
+                    id="tooltip-yt"
+                    target="_blank"
+                  >
+                    <i className="fab fa-youtube" />
+                  </Button>
+                  <UncontrolledTooltip delay={0} target="tooltip-yt">
+                    YouTube
                   </UncontrolledTooltip>
                 </div>
               </Col>

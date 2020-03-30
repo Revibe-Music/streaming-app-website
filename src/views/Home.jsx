@@ -154,7 +154,7 @@ class Home extends React.Component {
                 <Col className="p-sm-0" lg="8">
                   <Row>
                     <Col md="6">
-                      <div className="info info-primary">
+                      <div className="info info-primary" style={{ height: 300 }}>
                         <div className="icon icon-white">
                           <i className="tim-icons icon-headphones" />
                         </div>
@@ -166,7 +166,7 @@ class Home extends React.Component {
                       </div>
                     </Col>
                     <Col md="6">
-                      <div className="info info-primary">
+                      <div className="info info-primary" style={{ height: 300 }}>
                         <div className="icon icon-white">
                           <i className="tim-icons icon-triangle-right-17" />
                         </div>
@@ -180,7 +180,7 @@ class Home extends React.Component {
                   </Row>
                   <Row>
                     <Col md="6">
-                      <div className="info info-primary">
+                      <div className="info info-primary" style={{ height: 300 }}>
                         <div className="icon icon-white">
                           <i className="tim-icons icon-sound-wave" />
                         </div>
@@ -192,7 +192,7 @@ class Home extends React.Component {
                       </div>
                     </Col>
                     <Col md="6">
-                      <div className="info info-primary">
+                      <div className="info info-primary" style={{ height: 300 }}>
                         <div className="icon icon-white">
                           <i className="tim-icons icon-send" />
                         </div>
@@ -427,13 +427,13 @@ class Home extends React.Component {
                       </div>
                     </Col>
                     <Col lg="4" md="4">
-                      <div className="info text-left bg-success" style={{ height: "320px" }}>
+                      <div className="info text-left bg-success" style={{ height: "320px", backgroundColor: "teal" }}>
                         <FaTshirt className="icon icon-white" fontSize="30px" />
                         <p className="description float-right"><bold>Coming Soon!</bold> </p>
-                        <h4 className="info-title text-muted">
+                        <h4 className="info-title">
                           Sell Merch
                         </h4>
-                        <p className="description text-muted">
+                        <p className="description">
                           Upload a design and begin selling!
                           On demand, drop shipped merchandise means no up front costs and no oder processing on your end.
                         </p>

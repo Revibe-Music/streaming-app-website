@@ -161,9 +161,10 @@ class BlogPosts extends React.Component {
                         href={`/blog/${elem.id}`}
                         title={elem.title}
                         description={elem.summary}
-                        publishDate={elem['publish_date']}
+                        publishDate={elem.publish_date}
                         thumbnail={elem.header_image}
                         author={elem.author}
+                        displayStyle={elem.display_style}
                       />
                     </Col>
                     )
