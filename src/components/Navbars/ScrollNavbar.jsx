@@ -87,7 +87,7 @@ class ScrollNavbar extends React.Component {
                 <NavLink
                   href="/blogs"
                 >
-                  Blogs
+                  Blog
                 </NavLink>
               </NavItem>
               {/*<NavItem>

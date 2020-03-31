@@ -62,11 +62,22 @@ export default class BlogCard extends React.Component {
       <Card className="card-blog card-plain">
         <div className="card-image" style={{height: "350px", width: "350px", overflow: "hidden"}}>
           <a href={this.props.href}>
-            <img
+            {/*<img
               alt="..."
               className="img rounded"
               src={this.props.thumbnail ? this.props.thumbnail : require("assets/img/steven-roe.jpg")}
               style={{width: "auto", height: "auto"}}
+            />*/}
+            <div 
+              style={{
+                backgroundImage: `url(${this.props.thumbnail ? this.props.thumbnail : require("assets/img/steven-roe.jpg")})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                width: "350px",
+                height: "350px",
+                overflow: "hidden"
+              }}
+              className="img rounded"
             />
           </a>
         </div>
@@ -79,7 +90,7 @@ export default class BlogCard extends React.Component {
           </CardTitle>
           <div style={{ height: "50px" }}>
             <p className="card-description">
-              {this.props.description ? truncate(this.props.description, 144) : "UH OH! Somebody forgot to include the damn summary!"}
+              {this.props.description ? truncate(this.props.description, 145) : "UH OH! Somebody forgot to include the damn summary!"}
             </p>
           </div>
           <CardFooter>

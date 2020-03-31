@@ -72,6 +72,21 @@ class ContactUs extends React.Component {
   }
 
   async onSubmit() {
+    if(this.state.first_name.length == "" 
+      || this.state.last_name.length == ""
+      || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)
+      || this.state.subject == ""
+      || this.state.message == "") {
+        MySwal.fire({
+          title: 'Form not submitted',
+          text: 'Please make sure all of the fields in the form are filled out!',
+          icon: 'error',
+          showCloseButton: true,
+          background: "#303030"
+        })
+        return
+    }
+
     var response = await revibe.contactUs(this.state)
 
     if(response != undefined) {
@@ -85,7 +100,7 @@ class ContactUs extends React.Component {
     } else {
       MySwal.fire({
         title: 'Form not submitted',
-        text: 'Please make sure all of the fields in the form are filled out',
+        text: 'An error has occurred when submitting the form. Please try again!',
         icon: 'error',
         showCloseButton: true,
         background: "#303030"

@@ -128,7 +128,7 @@ class BlogPosts extends React.Component {
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="6">
                   <h1 className="title">
-                    A collection of badass musicians.
+                    Blog
                   </h1>
                   <Button
                     className="btn-round btn-icon"

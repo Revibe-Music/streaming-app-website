@@ -49,3 +49,7 @@
   margin-top: 5px;
   margin-bottom: 25px;
 }
+
+.blog-post h1, h2, h3, h4 {
+  color: #7248BD
+}
