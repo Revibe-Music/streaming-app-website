@@ -444,6 +444,7 @@ class Home extends React.Component {
               </Row>
             </Container>
           </div>
+          {/* TODO: Mailchimp
           <div className="subscribe-line subscribe-line-white">
             <Container>
               <Row>
@@ -499,7 +500,7 @@ class Home extends React.Component {
                 </Col>
               </Row>
             </Container>
-          </div>
+          </div>*/}
           <div className="social-line social-line-big-icons">
             <Container>
               <Row className="d-flex justify-content-center">
