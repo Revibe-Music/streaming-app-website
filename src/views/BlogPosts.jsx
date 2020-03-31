@@ -412,7 +412,7 @@ class BlogPosts extends React.Component {
                 </Col>*/}
               </Row>
             </Container>
-
+            {/* TODO: Mailchimp
             <div className="subscribe-line subscribe-line-white">
               <Container>
                 <Row>
@@ -468,8 +468,8 @@ class BlogPosts extends React.Component {
                   </Col>
                 </Row>
               </Container>
-            </div>
-            <div className="social-line social-line-big-icons mb-md">
+            </div>*/}
+            <div className="social-line social-line-big-icons mb-md mt-md">
               <Container>
                 <Row className="d-flex justify-content-center">
                   <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>

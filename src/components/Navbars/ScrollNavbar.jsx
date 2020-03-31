@@ -69,7 +69,7 @@ class ScrollNavbar extends React.Component {
             </a>
             </NavbarBrand>
           </div>
-          <UncontrolledCollapse navbar toggler="#example-header-4">
+          <UncontrolledCollapse navbar toggler="#example-header-4" style={isMobile ? { backgroundColor: "#4f5353" } : {}}>
             <div className="navbar-collapse-header">
               <Row>
                 <Col className="collapse-brand" xs="6">
