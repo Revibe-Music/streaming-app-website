@@ -83,10 +83,6 @@ export default class BlogPost extends React.Component {
 
     if(blogPost){
       console.log(blogPost)
-      
-      blogPost.tags.forEach(elem => {
-        console.log(`Found tag: ${elem}`)
-      })
     }
 
     return (
@@ -145,7 +141,7 @@ export default class BlogPost extends React.Component {
                       <Col md="10">
                         <div className="blog-tags">
                           Tags:  
-                          {blogPost.tags.map((item, key) => <Badge color="primary" className="mr-1">{item}</Badge>)}
+                          {blogPost.tags.map((item, key) => <Badge color="primary" className="mr-1">{item.text}</Badge>)}
                         </div>
                       </Col>
                       <hr />

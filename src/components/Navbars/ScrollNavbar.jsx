@@ -50,6 +50,8 @@ class ScrollNavbar extends React.Component {
     }
   };
   render() {
+    const isMobile = window.innerWidth < 576;
+
     return (
       <>
         <Navbar className="fixed-top bg-transparent" expand="lg" id="navbar-scroll">
@@ -82,10 +84,14 @@ class ScrollNavbar extends React.Component {
                 </Col>
               </Row>
             </div>
-            <Nav className="ml-auto" navbar>
-              <NavItem className="active">
+            <Nav className={`ml-auto ${isMobile ? "d-flex align-items-center" : ""}`} navbar>
+              <NavItem 
+                style={isMobile ? {width: "100%"} : {}}
+              >
                 <NavLink
                   href="/blogs"
+                  style={isMobile ? {width: "100%"} : {}}
+                  className={`${isMobile ? "d-block text-center" : ""}`}
                 >
                   Blog
                 </NavLink>
@@ -97,16 +103,21 @@ class ScrollNavbar extends React.Component {
                   Contact Us
                 </NavLink>
               </NavItem>}*/}
-              <NavItem>
+              <NavItem
+                style={isMobile ? {width: "100%"} : {}}
+              >
                 <NavLink
                   href="https://artist.revibe.tech"
                   target="_blank"
+                  style={isMobile ? {width: "100%"} : {}}
+                  className={`${isMobile ? "d-block text-center" : ""}`}
                 >
                   For Artists
                 </NavLink>
               </NavItem>
-              <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8" target="_blank">
-                <Button color="primary">Download <i className="tim-icons icon-minimal-right" /></Button>
+              {isMobile ? <br/> : null}
+              <a href="https://apps.apple.com/app/apple-store/id1500839967?mt=8" target="_blank" style={isMobile ? {width:"100%"} : {}}>
+                <Button color="primary" className={`${isMobile ? "ml-auto mr-auto text-center d-block" : ""}`} style={{width:"100%"}}>Download <i className="tim-icons icon-minimal-right" /></Button>
               </a>
 
             </Nav>
