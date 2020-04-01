@@ -17,6 +17,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from 'history';
 
 // styles
 import "assets/css/nucleo-icons.css";
@@ -32,6 +34,21 @@ import ContactUs from "views/ContactUs.jsx";
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
 import Instagram from "views/Instagram.jsx";
+
+const history = createBrowserHistory();
+
+const trackingId = "UA-101183111-2";
+ReactGA.initialize(trackingId);
+
+const hostname = window && window.location && window.location.hostname;
+
+// only track in production env
+if(hostname === "revibe.tech") {
+  history.listen(location => {
+    ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  });
+}
 
 ReactDOM.render(
   <BrowserRouter>
