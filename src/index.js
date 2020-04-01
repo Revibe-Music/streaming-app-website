@@ -16,7 +16,7 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import ReactGA from "react-ga";
 import { createBrowserHistory } from 'history';
 
@@ -51,7 +51,7 @@ if(hostname === "revibe.tech") {
 }
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router history={history}>
     <Switch>
       <Route path="/home" render={props => <Home {...props} />} />
       <Route path="/blogs" render={props => <BlogPosts {...props} />} />
@@ -63,6 +63,6 @@ ReactDOM.render(
       <Route path="/register" render={props => <Register {...props} />} />*/}
       <Redirect from="/" to="/home" />
     </Switch>
-  </BrowserRouter>,
+  </Router>,
   document.getElementById("root")
 );

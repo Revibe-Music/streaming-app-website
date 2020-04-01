@@ -52,7 +52,7 @@ export default class PictureHeader extends React.Component {
             <>
               <Row className="mt-auto">
                 <Col md="12" xs="24" className="text-md-left">
-                  <h1 className="title mb-1 mt-4" style={{ fontSize: "3.5rem", fontFamily: "FuturaHeavy" }}>Stream Spotify, YouTube, and Revibe.</h1>
+                  <h1 className="title mb-1 mt-4" style={{ fontSize: "3.5rem", fontFamily: "FuturaHeavy" }}>Stream everything in one place.</h1>
                   <h1 className="title mb-1 mt-1" style={{ fontSize: "3.5rem", fontFamily: "FuturaHeavy" }}>Share music with friends.</h1>
                 </Col>
               </Row>
@@ -72,13 +72,13 @@ export default class PictureHeader extends React.Component {
               </Row>
             </>
             :
-            <Row className="mt-auto">
+            <Row className="mb-lg mt-auto">
               <Col md="7" xs="14" className="text-center">
-                <h4 className="title mb-1 mt-4" style={{ fontFamily: "FuturaHeavy" }}>Stream Spotify, YouTube, and Revibe.</h4>
+                <h4 className="title mb-1 mt-4" style={{ fontFamily: "FuturaHeavy" }}>Stream everything in one place.</h4>
                 <h4 className="title mb-1 mt-1" style={{ fontFamily: "FuturaHeavy" }}>Share music with friends.</h4>
                 <h4 className="title mt-1 mb-4" style={{ fontFamily: "FuturaHeavy" }}>Support local artists.</h4>
               </Col>
-              <Col md="5" xs="10" className="d-flex justify-content-center ml-auto mr-auto ml-md-0 mr-md-0">
+              <Col md="5" xs="12" className="d-flex justify-content-center ml-auto mr-auto ml-md-0 mr-md-0">
                 <Button
                   className="btn-primary btn-lg mt-auto mb-auto ml-md-auto"
                   color="default"

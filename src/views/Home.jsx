@@ -46,6 +46,7 @@ import PictureHeader from "components/Headers/PictureHeader.jsx";
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
 import TikTok from "components/Icons/TikTok";
+import MailChimpForm from "components/Forms/Mailchimp";
 
 class Home extends React.Component {
   state = {
@@ -444,63 +445,7 @@ class Home extends React.Component {
               </Row>
             </Container>
           </div>
-          {/* TODO: Mailchimp
-          <div className="subscribe-line subscribe-line-white">
-            <Container>
-              <Row>
-                <Col lg="6">
-                  <h4 className="title">Subscribe to our Mailing List!</h4>
-                  <p className="description">
-                    Join our mailing list for new music, playlists, artist interviews, and more!
-                  </p>
-                </Col>
-                <Col lg="6">
-                  <Card className="card-plain card-form-horizontal">
-                    <CardBody>
-                      <Form action="" method="">
-                        <Row>
-                          <Col sm="8">
-                            <InputGroup
-                              className={classnames({
-                                "input-group-focus": this.state.emailFocus
-                              })}
-                            >
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  <i className="tim-icons icon-email-85" />
-                                </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Your Email..."
-                                type="text"
-                                onFocus={e =>
-                                  this.setState({ emailFocus: true })
-                                }
-                                onBlur={e =>
-                                  this.setState({ emailFocus: false })
-                                }
-                              />
-                            </InputGroup>
-                          </Col>
-                          <Col sm="4">
-                            <Button
-                              block
-                              className="btn-round"
-                              color="primary"
-                              type="button"
-                              onClick={e => e.preventDefault()}
-                            >
-                              Subscribe
-                            </Button>
-                          </Col>
-                        </Row>
-                      </Form>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </div>*/}
+          <MailChimpForm />
           <div className="social-line social-line-big-icons">
             <Container>
               <Row className="d-flex justify-content-center">

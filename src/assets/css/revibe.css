@@ -46,10 +46,16 @@
 }
 
 .blog-post h2 {
-  margin-top: 5px;
-  margin-bottom: 25px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .blog-post h1, h2, h3, h4 {
   color: #7248BD
+}
+
+@media screen and (max-width: 576px) {
+  .blog-post .social-line-big-icons [class*="col-"] {
+    border-right: 0
+  }
 }

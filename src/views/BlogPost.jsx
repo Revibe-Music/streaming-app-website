@@ -75,6 +75,7 @@ export default class BlogPost extends React.Component {
 
   render() {
     const { isLoaded, blogPost } = this.state
+    const isMobile = window.innerWidth < 576
 
     let date = null
 
@@ -103,8 +104,8 @@ export default class BlogPost extends React.Component {
               />
               <Container>
                 <Row>
-                  <Col className="ml-auto mr-auto text-center" md="8">
-                    <h1 className="title" style={{ fontFamily:"FuturaHeavy", fontSize:"3rem" }}>{blogPost.title}</h1>
+                  <Col className="ml-auto mr-auto text-center" md="12">
+                    <h1 className="title" style={{ fontFamily:"FuturaHeavy", fontSize: (isMobile ? "3rem" : "8.5rem") }}>{blogPost.title}</h1>
                     {/*<div className="author">
                       <img
                         alt="..."
