@@ -24,17 +24,20 @@ import {
 } from "reactstrap";
 
 // core components
-import Footer from "components/Footer/Footer.jsx";
-import { FaRegQuestionCircle } from "react-icons/fa";
+import Footer from "components/Footers/Footer.jsx";
+import history from "helpers/history";
 
 class Error404 extends React.Component {
-
-  state = 
-  {
-    error_code: "404"
-  };
+  constructor(props) {
+    super(props)
+  }
 
   render() {
+    if(!this.props.location.state)
+      history.push("/")
+
+    const { state } = this.props.location
+
     return (
       <>
         <div className="wrapper" ref="wrapper" style={{paddingTop: "100px"}}> 
@@ -46,21 +49,23 @@ class Error404 extends React.Component {
                     <img
                       alt="..."
                       height="600"
-                      src={require("assets/portal/img/microphone.jpg")}
+                      src={require("assets/img/microphone.jpg")}
                     />
                   </div>
                 </Col>
                 <Col className="mt-md-5" lg="6">
-                  <a href="/dashboard/">
-                  <img style={{paddingLeft: "155px"}} src={require("assets/portal/img/revibetransparent.png")}/>
+                  <a href="/">
+                  <img style={{paddingLeft: "155px"}} src={require("assets/img/revibetransparent.png")}/>
                   </a>
-                  <h1 className="mt-md-5 title text-center text-primary">Dude, where's my page? {this.state.error_code} Error</h1>
+                  <h1 className="mt-md-5 title text-center text-primary">{state.status_code} Error<br/>Dude, where's my page?</h1>
                   <Row>
                     <Col lg="12">
                       <div>
                         <h4 className="info text-center text-primary"> Apologies</h4>
                         <p className="content info text-center">
                           It looks like there was an error locating this page...
+                          <br/>
+                          Error: {state.detail}
                         </p>
                       </div>
                     </Col>

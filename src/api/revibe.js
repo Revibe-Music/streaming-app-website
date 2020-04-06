@@ -117,7 +117,7 @@ export default class RevibeAPI {
       }
       catch(error) {
         response = error.response
-        response.data = this._handleErrors(error.response)
+        //response.data = this._handleErrors(error.response)
         numRequestsSent += 1
       }
     }
@@ -194,6 +194,14 @@ export default class RevibeAPI {
 
   async getBlogPost(id) {
     return await this._request(`administration/blog/${id}`, null, "GET", false)
+  }
+
+  async getRelinkArtists() {
+    return await this._request(`content/public/`, null, "GET", false)
+  }
+
+  async getRelinkArtist(id) {
+    return await this._request(`content/public/${id}`, null, "GET", false)
   }
 
   ////////////////////////////////////

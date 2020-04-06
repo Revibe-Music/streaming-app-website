@@ -38,8 +38,10 @@ import {
 //core components
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
+import MetaHelmet from "components/MetaHelmet/MetaHelmet.jsx"
 
 import RevibeAPI from "api/revibe"
+import history from "helpers/history";
 
 const revibe = new RevibeAPI()
 
@@ -66,11 +68,30 @@ export default class BlogPost extends React.Component {
         isLoaded: true,
         blogPost: res.data
       })
-    }
+    } else
+      history.push({ pathname: "/" + res.data.status_code, state: res.data })
+      
   }
 
   componentWillUnmount() {
     document.body.classList.remove("blog-post");
+  }
+
+  getTypeFromDisplayStyle(style) {
+    switch(style) {
+      case 1: {
+        return {
+          tag: "Artist of the Week",
+          color: "info"
+        }
+      }
+      default: {
+        return {
+          tag: "Blog",
+          color: "primary"
+        }
+      }
+    }
   }
 
   render() {
@@ -88,6 +109,11 @@ export default class BlogPost extends React.Component {
 
     return (
       <>
+        <MetaHelmet 
+          title={blogPost ? `${blogPost.title} - ${this.getTypeFromDisplayStyle(blogPost.display_style).tag}` : "Blog Post"}
+          url={window.location}
+          image={blogPost ? blogPost.header_image : null}
+        />
         <ScrollNavbar />
         <div className="wrapper" ref="wrapper">
           {isLoaded

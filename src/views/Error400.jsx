@@ -24,16 +24,24 @@ import {
 } from "reactstrap";
 
 // core components
-import Footer from "components/Footer/Footer.jsx";
+import Footer from "components/Footers/Footer.jsx";
+import history from "helpers/history";
 
 class Error400 extends React.Component {
 
-  state = 
-  {
-    error_code: "400"
-  };
+  constructor(props) {
+    super(props)
+  }
 
   render() {
+    if(!this.props.location.state)
+      history.push("/")
+
+    const { state } = this.props.location
+
+    if(!state.status_code || !state.detail)
+      history.push("/")
+
     return (
       <>
         <div className="wrapper" ref="wrapper" style={{paddingTop: "100px"}}> 
@@ -45,21 +53,23 @@ class Error400 extends React.Component {
                     <img
                       alt="..."
                       height="600"
-                      src={require("assets/portal/img/max.jpg")}
+                      src={require("assets/img/max.jpg")}
                     />
                   </div>
                 </Col>
                 <Col className="mt-md-5" lg="6">
-                  <a href="/dashboard/">
-                  <img style={{paddingLeft: "155px"}} src={require("assets/portal/img/revibetransparent.png")}/>
+                  <a href="/">
+                  <img style={{paddingLeft: "155px"}} src={require("assets/img/revibetransparent.png")}/>
                   </a>
-                  <h1 className="mt-md-5 title text-center text-primary">This is awkward, {this.state.error_code} Error</h1>
+                  <h1 className="mt-md-5 title text-center text-primary">{state.status_code} Error<br/>This is awkward</h1>
                   <Row>
                     <Col lg="12">
                       <div>
                         <h4 className="info text-center text-primary"> We're Sorry</h4>
                         <p className="content info text-center">
-                          It looks like we could not process your request at this time, please try again later
+                          It looks like we could not process your request at this time, please try again later!
+                          <br/>
+                          Error: {state.detail}
                         </p>
                       </div>
                     </Col>

@@ -43,10 +43,11 @@ import {
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
 import BlogCard from "components/BlogCard/BlogCard";
-import TikTok from 'components/Icons/TikTok'
 
 import RevibeAPI from 'api/revibe.js'
 import MailChimpForm from "components/Forms/Mailchimp";
+import MetaHelmet from "components/MetaHelmet/MetaHelmet";
+import Icon from "components/Icons/icons";
 
 const revibe = new RevibeAPI()
 
@@ -114,6 +115,10 @@ class BlogPosts extends React.Component {
 
     return (
       <>
+        <MetaHelmet 
+          title="Blog"
+          url={window.location}
+        />
         <ScrollNavbar />
         <div className="wrapper" ref="wrapper">
           <div className="page-header page-header-small header-filter">
@@ -454,7 +459,7 @@ class BlogPosts extends React.Component {
                       href="https://vm.tiktok.com/GYQojE/"
                       target="_blank"
                     >
-                      <TikTok width="24px" height="24px" color="#7248BD" />
+                      <Icon icon="tiktok" width="24px" height="24px" color="#7248BD" />
                     </Button>
                   </Col>
                   <Col md="2" className={`${isMobile ? "border-right-0" : ""}`}>

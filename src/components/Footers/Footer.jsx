@@ -29,7 +29,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-import TikTok from "../Icons/TikTok";
+import Icon from "../Icons/icons";
 
 class Footer extends React.Component {
   render() {
@@ -159,7 +159,7 @@ class Footer extends React.Component {
                     target="_blank"
                   >
                     <div style={{ width: "100%", height: "100%" }} className="d-flex justify-content-center align-items-center">
-                      <TikTok width="16px" height="16px" color="#ffffff" />
+                      <Icon icon="tiktok" width="16px" height="16px" color="#ffffff" />
                     </div>
                   </Button>
                   <UncontrolledTooltip delay={0} target="tooltip-tiktok">

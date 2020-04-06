@@ -18,7 +18,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import ReactGA from "react-ga";
-import { createBrowserHistory } from 'history';
+import history from "./helpers/history"
 
 // styles
 import "assets/css/nucleo-icons.css";
@@ -34,8 +34,9 @@ import ContactUs from "views/ContactUs.jsx";
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
 import Instagram from "views/Instagram.jsx";
-
-const history = createBrowserHistory();
+import Artist from "views/Artist";
+import Error400 from "views/Error400";
+import Error404 from "views/Error404";
 
 const trackingId = "UA-101183111-2";
 ReactGA.initialize(trackingId);
@@ -58,10 +59,13 @@ ReactDOM.render(
       <Route path="/blog/:id" render={props => <BlogPost {...props} />} />
       <Route path="/about" render={props => <AboutUs {...props} />} />
       <Route path="/contact" render={props => <ContactUs {...props} />} />
-      <Route path="/pages/instagram" render={props => <Instagram {...props} />} />
+      <Route path="/instagram" render={props => <Instagram {...props} />} />
+      <Route path="/artists/:id" render={props => <Artist {...props} />} />
+      <Route path="/404" render={props => <Error404 {...props} />} />
       {/*<Route path="/login" render={props => <Login {...props} />} />
       <Route path="/register" render={props => <Register {...props} />} />*/}
-      <Redirect from="/" to="/home" />
+      <Redirect from="/" exact to="/home" />
+      <Route path="**" render={props => <Error400 {...props} />} />
     </Switch>
   </Router>,
   document.getElementById("root")
