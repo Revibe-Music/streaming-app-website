@@ -136,18 +136,19 @@ class Artist extends React.Component {
       <div className="wrapper" ref="wrapper">
         {isLoaded ?
           <>
-            <div className={`section ${!isMobile ? " mt-lg" : " mt-sm"}`}>
+            <div className={`section ${!isMobile ? "mt-lg" : "pt-sm pb-2"}`}>
               <Container>
                 <Row>
-                  <Col md="6" className="d-flex justify-content-center">
+                  <Col md="6" sm="auto" className="d-flex justify-content-center" style={isMobile ? { height: "120px" } : null}>
                     {artist.images.length > 0 ? <img
                       src={artist.images[1] ? artist.images[1].url : artist.images[0].url}
-                      className="img rounded ml-auto mr-auto"
+                      style={isMobile ? { width: "35%", height: "auto" } : null}
+                      className="img rounded mt-auto mb-auto d-block"
                     /> : null}
                   </Col>
                   <Col md="6">
                     <div className="mt-auto mb-auto text-center text-md-left">
-                      <h1 className="title text-white mb-2">{artist.name}</h1>
+                      <h1 className="title text-white mb-2 mt-4" style={isMobile ? { fontSize: "3.5rem", fontFamily: "FuturaHeavy" } : null}>{artist.name}</h1>
                       {artist.location ? <h4 className="text-purple">{artist.location}</h4> : null}
                       <h6 className="description">{artist.bio}</h6>
                     </div>
@@ -155,7 +156,7 @@ class Artist extends React.Component {
                 </Row>
               </Container>
             </div>
-            <div className="social-line social-line-big-icons mb-md mt-md">
+            <div className="social-line social-line-big-icons mb-md pt-1">
               <Container>
                 <Row className="d-flex justify-content-center">
                   {socials.map((elem, i) => (
