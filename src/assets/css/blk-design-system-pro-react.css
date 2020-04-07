@@ -13181,7 +13181,7 @@ html {
   margin-top: 100px; }
 
 .header-6 {
-  background-image: url("../../assets/img/dots.png");
+  background-image: url("/assets/img/dots.png");
   background-size: contain; }
   .header-6 .path {
     right: 3%;
@@ -14513,55 +14513,55 @@ html {
   .register-page .square-1 {
     height: 300px;
     width: 300px;
-    background-image: url("../../assets/img/square1.png");
+    background-image: url("/assets/img/square1.png");
     top: 175px;
     right: 150px;
     opacity: 0.8; }
   .register-page .square-2 {
     height: 120px;
     width: 120px;
-    background-image: url("../../assets/img/square2.png");
+    background-image: url("/assets/img/square2.png");
     opacity: 0.9;
     top: 310px;
     right: 390px; }
   .register-page .square-3 {
     width: 200px;
     height: 200px;
-    background-image: url("../../assets/img/square3.png");
+    background-image: url("/assets/img/square3.png");
     opacity: 0.3;
     top: -50px;
     right: 400px; }
   .register-page .square-4 {
     height: 200px;
     width: 200px;
-    background-image: url("../../assets/img/square4.png");
+    background-image: url("/assets/img/square4.png");
     right: -50px;
     top: 525px; }
   .register-page .square-5 {
     height: 150px;
     width: 150px;
-    background-image: url("../../assets/img/square5.png");
+    background-image: url("/assets/img/square5.png");
     opacity: 0.5;
     top: 500px;
     right: 470px; }
   .register-page .square-6 {
     height: 70px;
     width: 70px;
-    background-image: url("../../assets/img/square5.png");
+    background-image: url("/assets/img/square5.png");
     opacity: 0.9;
     top: 105px;
     right: 20px; }
   .register-page .square-7 {
     height: 200px;
     width: 200px;
-    background-image: url("../../assets/img/square5.png");
+    background-image: url("/assets/img/square5.png");
     left: -100px;
     top: 100px;
     opacity: .4; }
   .register-page .square-8 {
     height: 100px;
     width: 100px;
-    background-image: url("../../assets/img/square1.png");
+    background-image: url("/assets/img/square1.png");
     left: 300px;
     top: 400px;
     opacity: .4; }
@@ -14757,7 +14757,7 @@ html {
 .reset-page,
 .product-page,
 .presentation-page {
-  background-image: url("../../assets/img/dots.png");
+  background-image: url("/assets/img/dots.png");
   background-size: contain; }
 
 .login-page .footer {
@@ -15607,7 +15607,7 @@ html {
   .section-signup .square-1 {
     height: 300px;
     width: 300px;
-    background-image: url("../../assets/img/square1.png");
+    background-image: url("/assets/img/square1.png");
     top: 80px;
     left: 100px;
     opacity: 0.3;
@@ -15615,7 +15615,7 @@ html {
   .section-signup .square-2 {
     height: 200px;
     width: 200px;
-    background: url("../../assets/img/square3.png");
+    background: url("/assets/img/square3.png");
     background-size: cover;
     bottom: 40px;
     left: 600px;
@@ -15624,7 +15624,7 @@ html {
   .section-signup .square-3 {
     height: 100px;
     width: 100px;
-    background: url("../../assets/img/square2.png");
+    background: url("/assets/img/square2.png");
     background-size: cover;
     top: 300px;
     left: 700px;
@@ -15632,7 +15632,7 @@ html {
   .section-signup .square-4 {
     height: 250px;
     width: 250px;
-    background: url("../../assets/img/square3.png");
+    background: url("/assets/img/square3.png");
     background-size: cover;
     top: 0px;
     right: 100px;
