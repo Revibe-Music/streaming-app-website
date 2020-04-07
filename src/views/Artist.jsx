@@ -122,7 +122,22 @@ class Artist extends React.Component {
       sortedSocials.forEach(elem => socials.push(this.processSocial(elem)))
       console.log(socials)
 
-      colSize = (socials.length > 12 ? "auto" : `${Math.floor(12/socials.length)}`)
+      var columnizedSocials = []
+      const linksPerCol = 3
+      colSize = 12/linksPerCol
+
+      for(let i = 0; i < socials.length; i++) {
+        let rowIndex = Math.floor(i/linksPerCol)
+        let colIndex = (i % linksPerCol)
+
+        console.log({ rowIndex, colIndex })
+
+        if(colIndex == 0) columnizedSocials[rowIndex] = []
+        
+        columnizedSocials[rowIndex][colIndex] = socials[i]
+      }
+
+      console.log(columnizedSocials)
     }
 
     return (
@@ -136,19 +151,19 @@ class Artist extends React.Component {
       <div className="wrapper" ref="wrapper">
         {isLoaded ?
           <>
-            <div className={`section ${!isMobile ? "mt-lg" : "pt-sm pb-2"}`}>
+            <div className={`section ${!isMobile ? "pt-md" : "pt-sm pb-2"}`}>
               <Container>
-                <Row>
-                  <Col md="6" sm="auto" className="d-flex justify-content-center" style={isMobile ? { height: "120px" } : null}>
+                <Row className="d-flex justify-content-center">
+                  <Col md="4" sm="auto" className="d-flex justify-content-center" style={isMobile ? { height: "120px" } : null}>
                     {artist.images.length > 0 ? <img
                       src={artist.images[1] ? artist.images[1].url : artist.images[0].url}
-                      style={isMobile ? { width: "35%", height: "auto" } : null}
+                      style={isMobile ? { width: "35%", height: "auto" } : { width: "65%", height: "auto" } }
                       className="img rounded mt-auto mb-auto d-block"
                     /> : null}
                   </Col>
-                  <Col md="6">
-                    <div className="mt-auto mb-auto text-center text-md-left">
-                      <h1 className="title text-white mb-2 mt-4" style={isMobile ? { fontSize: "3.5rem", fontFamily: "FuturaHeavy" } : null}>{artist.name}</h1>
+                  <Col md="4" className="d-flex justify-content-center">
+                    <div className="mt-auto mb-auto text-center">
+                      <h1 className="title text-white mb-2 mt-0" style={isMobile ? { fontSize: "3.5rem", fontFamily: "FuturaHeavy" } : { fontSize: "4.25rem", fontFamily: "FuturaHeavy" }}>{artist.name}</h1>
                       {artist.location ? <h4 className="text-purple">{artist.location}</h4> : null}
                       <h6 className="description">{artist.bio}</h6>
                     </div>
@@ -156,22 +171,24 @@ class Artist extends React.Component {
                 </Row>
               </Container>
             </div>
-            <div className="social-line social-line-big-icons mb-md pt-1">
+            <div className="social-line social-line-big-icons mb-md pt-1 pb-0">
               <Container>
-                <Row className="d-flex justify-content-center">
-                  {socials.map((elem, i) => (
-                    <Col md={colSize} className={`${isMobile ? "border-right-0 mb-3" : ""}`}>
+                {columnizedSocials.map((row, i) => (
+                  <Row className={`d-flex justify-content-center ${i != 0 && !isMobile ? "mt-2" : ""}`}>
+                    {row.map((col, i) => (
+                    <Col md={colSize} className={`${isMobile ? "border-right-0 mb-3" : "border-right-0"}`}>
                       <Button
                         className="btn-simple btn-icon btn-footer"
                         color="primary"
-                        href={elem.link}
+                        href={col.link}
                         target="_blank"
                       >
-                        {elem.icon}
+                        {col.icon}
                       </Button>
                     </Col>
-                  ))}
-                </Row>
+                    ))}
+                  </Row>
+                ))}
               </Container>
             </div>
           </>
