@@ -97,8 +97,6 @@ class Artist extends React.Component {
         return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle }
       case "youtube":
         return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle }
-      case "website":
-        return { icon: <FaCompass fontSize="24px" />, link: socialObj.handle }
       case "tidal":
         return { icon: <Icon icon="tidal" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle }
       case "cashapp":
@@ -106,7 +104,7 @@ class Artist extends React.Component {
       case "venmo":
         return { icon: <Icon icon="venmo" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle }
       default:
-        return { icon: <FaGlobe fontSize="24px" />, link: socialObj.handle }
+        return { icon: <p style={{ textSize: "24px" }} className="text-primary" >{socialObj.social_media}</p>, link: socialObj.handle }
     }
   }
 
@@ -120,7 +118,7 @@ class Artist extends React.Component {
       var sortedSocials = artist.social_media.sort((a, b) => a.order - b.order)
 
       sortedSocials.forEach(elem => socials.push(this.processSocial(elem)))
-      console.log(socials)
+      //console.log(socials)
 
       var columnizedSocials = []
       const linksPerCol = 3
@@ -137,7 +135,7 @@ class Artist extends React.Component {
         columnizedSocials[rowIndex][colIndex] = socials[i]
       }
 
-      console.log(columnizedSocials)
+      //console.log(columnizedSocials)
     }
 
     return (
