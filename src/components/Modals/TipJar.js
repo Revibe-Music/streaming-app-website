@@ -18,6 +18,7 @@ import {
 import Select from "react-select";
 import { FaTimes } from "react-icons/fa";
 import RevibeAPI from "api/revibe"
+import ReactGA from "react-ga"
 
 const styles = {
   donationUnselectedButton: {
@@ -69,6 +70,7 @@ class TipJarModal extends Component {
     this.close = this.close.bind(this)
     this.openVenmo = this.openVenmo.bind(this)
     this.openCashApp = this.openCashApp.bind(this)
+    this.analyticsClick = this.analyticsClick.bind(this)
   }
   close() {
     this.setState({paymentMethod: null,amount: 1, displayPaymentMethods:false})
@@ -93,6 +95,24 @@ class TipJarModal extends Component {
 
   selectAmount(amount) {
     this.setState({amount: amount})
+  }
+
+  analyticsClick = (e, obj, link) => {
+    e.preventDefault()
+    const hostname = window && window.location && window.location.hostname;
+
+    if(hostname === "revibe.tech") {
+      ReactGA.event({
+        category: 'Relink',
+        action: `${obj.artist} - ${link}`,
+        label: `$${obj.amount}`
+      })
+    }
+
+    if(link === "Cash App")
+      this.openCashApp()
+    else if(link === "Venmo")
+      this.openVenmo()
   }
 
   render() {
@@ -147,7 +167,7 @@ class TipJarModal extends Component {
         <>
           <div style={{display: "flex",alignItems: "center", justifyContent: "center"}}>
             {this.props.venmoHandle ?
-              <button style={{backgroundColor:"white", borderWidth: 0, borderRadius: 5, width: "30%", height: "30%"}} onClick={this.openVenmo}>
+              <button style={{backgroundColor:"white", borderWidth: 0, borderRadius: 5, width: "30%", height: "30%"}} onClick={e => this.analyticsClick(e, { artist: this.props.artist.name, amount: this.state.amount }, "Venmo")}>
                 <img src={require("assets/img/venmo_logo_blue.png")} style={{ width: "80%", height: "auto", margin: "10%" }} />
               </button>
             :
@@ -156,7 +176,7 @@ class TipJarModal extends Component {
           </div>
           <div style={{marginTop: "4%", alignItems: "center", justifyContent: "center"}}>
             {this.props.cashAppHandle ?
-              <button style={{backgroundColor:"white", borderWidth: 0, borderRadius: 5, width: "30%", height: "30%"}} onClick={this.openCashApp}>
+              <button style={{backgroundColor:"white", borderWidth: 0, borderRadius: 5, width: "30%", height: "30%"}} onClick={e => this.analyticsClick(e, { artist: this.props.artist.name, amount: this.state.amount }, "Cash App")}>
                 <img src={require("assets/img/cash_app_logo.png")} style={{ width: "80%", height: "auto", margin: "10%" }} />
               </button>
             :

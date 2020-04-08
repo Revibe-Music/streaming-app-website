@@ -43,6 +43,7 @@ import MetaHelmet from "components/MetaHelmet/MetaHelmet.jsx"
 import RevibeAPI from "api/revibe"
 import history from "helpers/history";
 import Icon from "components/Icons/icons";
+import ReactGA from 'react-ga'
 
 const revibe = new RevibeAPI()
 
@@ -88,34 +89,53 @@ class Artist extends React.Component {
     document.body.classList.remove("artist-page");
   }
 
+  analyticsClick = (e, obj, href, isExternal) => {
+    e.preventDefault()
+    const hostname = window && window.location && window.location.hostname;
+
+    if(hostname === "revibe.tech") {
+      ReactGA.event({
+        category: 'Relink',
+        action: obj.artist,
+        label: obj.social
+      })
+    }
+
+    if(isExternal) {
+      var win = window.open(href, "_blank")
+      win.focus()
+    } else
+      window.location.href = href
+  }
+
   processSocial(socialObj) {
     switch(socialObj.social_media) {
       case "twitter":
-        return { icon: <FaTwitter fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaTwitter fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "instagram":
-        return { icon: <FaInstagram fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaInstagram fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "facebook":
-        return { icon: <FaFacebook fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaFacebook fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "apple_music":
-        return { icon: <FaApple fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaApple fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "spotify":
-        return { icon: <FaSpotify fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaSpotify fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "amazon_music":
-        return { icon: <FaAmazon fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaAmazon fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "soundcloud":
-        return { icon: <FaSoundcloud fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaSoundcloud fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "google_play_music":
-        return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "youtube":
-        return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle }
+        return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
       case "tidal":
-        return { icon: <Icon icon="tidal" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle }
+        return { icon: <Icon icon="tidal" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
       case "cashapp":
-        return { icon: <Icon icon="cashapp" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle }
+        return { icon: <Icon icon="cashapp" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
       case "venmo":
-        return { icon: <Icon icon="venmo" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle }
+        return { icon: <Icon icon="venmo" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
       default:
-        return { icon: <p style={{ textSize: "24px" }} className="text-primary" >{socialObj.social_media}</p>, link: socialObj.handle }
+        return { icon: <p style={{ textSize: "24px" }} className="text-primary" >{socialObj.social_media}</p>, link: socialObj.handle, social: socialObj.social_media }
     }
   }
 
@@ -197,6 +217,7 @@ class Artist extends React.Component {
                       <Button
                         className="btn-simple btn-icon btn-footer"
                         color="primary"
+                        onClick={e => this.analyticsClick(e, { artist: artist.name, social: col.social }, col.link, true)}
                         href={col.link}
                         target="_blank"
                       >

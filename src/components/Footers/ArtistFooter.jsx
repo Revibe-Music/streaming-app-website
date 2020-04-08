@@ -16,6 +16,7 @@
 */
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactGA from 'react-ga';
 
 // reactstrap components
 import {
@@ -35,31 +36,50 @@ class Footer extends React.Component {
   render() {
     const isMobile = window.innerWidth < 576
 
+    const analyticsClick = (e, link, href, isExternal) => {
+      e.preventDefault()
+      const hostname = window && window.location && window.location.hostname;
+
+      if(hostname === "revibe.tech") {
+        ReactGA.event({
+          category: 'Relink',
+          action: 'Footer',
+          label: link
+        })
+      }
+
+      if(isExternal) {
+        var win = window.open(href, "_blank")
+        win.focus()
+      } else
+        window.location.href = href
+    }
+
     return (
       <>
         <footer className="footer">
           <Container>
             <Row className="d-flex align-items-center">
-              <Col md="3" className={`d-flex flex-${isMobile ? "column" : "row"}`}>
+              <Col md="4" className={`d-flex flex-${isMobile ? "column" : "row"}`}>
                 {isMobile ? 
                   <>
                     <h2 className={`title text-white mt-0 mb-0`}>Relink</h2>
                     <h6 className={`text-white mt-auto mb-auto`} style={{ textTransform: "none" }}>by</h6>
-                    <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 150 }} className={`mt-auto mb-auto ${isMobile ? " ml-auto mr-auto" : ""}`} />
+                    <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 150 }} className={`mt-auto mb-auto ml-auto mr-auto`} />
                   </>
                 :
                   <>
                     <h1 className={`title text-white mt-0 mb-0 mr-1`}>Relink</h1>
                     <h5 className={`text-white mt-auto mb-auto ml-2`}>by</h5>
-                    <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 175 }} className={`mt-auto mb-auto ${isMobile ? " ml-auto mr-auto" : ""}`} />
+                    <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 150 }} className={`mt-auto mb-auto ml-2`} />
                   </>
                 }
               </Col>
-              <Col md="6" xs="12">
+              <Col md="4" xs="12">
                 <Nav className="pull-center mt-auto mb-auto pt-0">
                   <ul>
                     <li>
-                      <NavLink to="/home" tag={Link}>
+                      <NavLink onClick={e => analyticsClick(e, "Revibe Music", "/home", false)} to="/home" tag={Link}>
                         Revibe Music
                       </NavLink>
                     </li>
@@ -69,7 +89,7 @@ class Footer extends React.Component {
                       </NavLink>
                     </li>*/}
                     <li>
-                      <a href="https://artist.revibe.tech" target="_blank" className="ml-1">
+                      <a onClick={e => analyticsClick(e, "Revibe Artists", "https://artist.revibe.tech", true)} href="https://artist.revibe.tech" target="_blank" className="ml-1">
                         Revibe Artists
                       </a>
                     </li>
@@ -114,7 +134,7 @@ class Footer extends React.Component {
                   </NavItem>}
                 </Nav>
               </Col>*/}
-              <Col md="3">
+              <Col md="4">
 
               </Col>
             </Row>
