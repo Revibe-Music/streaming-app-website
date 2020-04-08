@@ -57,7 +57,7 @@ class Footer extends React.Component {
 
     return (
       <>
-        <footer className="footer">
+        <footer className="footer artist-footer">
           <Container>
             <Row className="d-flex align-items-center">
               <Col md="4" className={`d-flex flex-${isMobile ? "column" : "row"}`}>

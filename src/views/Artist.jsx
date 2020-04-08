@@ -187,7 +187,7 @@ class Artist extends React.Component {
                   </Col>
                   <Col md="4" className="d-flex justify-content-center">
                     <div className="mt-auto mb-auto text-center">
-                      <h1 className="title text-white mb-2 mt-0" style={isMobile ? { fontSize: "3.5rem", fontFamily: "FuturaHeavy" } : { fontSize: "4.25rem", fontFamily: "FuturaHeavy" }}>{artist.name}</h1>
+                      <h1 className={`title text-white mb-2 ${isMobile ? "mt-3" : ""}`} style={isMobile ? { fontSize: "3.5rem", fontFamily: "FuturaHeavy" } : { fontSize: "4.25rem", fontFamily: "FuturaHeavy" }}>{artist.name}</h1>
                       {artist.location ? <h4 className="text-purple">{artist.location}</h4> : null}
                       <h6 className="description">{artist.bio}</h6>
                     </div>

@@ -33,14 +33,11 @@ class Error404 extends React.Component {
   }
 
   render() {
-    if(!this.props.location.state)
-      history.push("/")
-
-    const { state } = this.props.location
+    var state = this.props.location.state ? this.props.location.state : { status_code: 404, detail: "Page not found." }
 
     return (
       <>
-        <div className="wrapper" ref="wrapper" style={{paddingTop: "100px"}}> 
+        <div className="wrapper" ref="wrapper"> 
           <div className="page-header">
             <Container>
               <Row className="align-items-center">
