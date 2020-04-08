@@ -60,7 +60,7 @@ ReactDOM.render(
       <Route path="/about" render={props => <AboutUs {...props} />} />
       <Route path="/contact" render={props => <ContactUs {...props} />} />
       <Route path="/instagram" render={props => <Instagram {...props} />} />
-      <Route path="/artists/:id" render={props => <Artist {...props} />} />
+      <Route path="/relink/:id" render={props => <Artist {...props} />} />
       <Route path="/404" render={props => <Error404 {...props} />} />
       {/*<Route path="/login" render={props => <Login {...props} />} />
       <Route path="/register" render={props => <Register {...props} />} />*/}

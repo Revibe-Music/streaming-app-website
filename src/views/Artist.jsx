@@ -37,7 +37,7 @@ import { FaExternalLinkAlt, FaTwitter, FaInstagram, FaFacebook, FaApple, FaSpoti
 
 // core components
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
-import Footer from "components/Footers/Footer.jsx";
+import Footer from "components/Footers/ArtistFooter.jsx";
 import TipJarModal from "components/Modals/TipJar.js";
 import MetaHelmet from "components/MetaHelmet/MetaHelmet.jsx"
 import RevibeAPI from "api/revibe"
@@ -152,10 +152,10 @@ class Artist extends React.Component {
         image={artist && artist.images.length > 0 ? (artist.images[2] ? artist.images[2].url : artist.images[0].url) : null}
       />
       {/*<ScrollNavbar />*/}
-      <div className="wrapper" ref="wrapper">
+      <div className="wrapper d-flex" style={{ flexDirection: "column" }} ref="wrapper">
         {isLoaded ?
           <>
-            <div className={`section ${!isMobile ? "pt-md" : "pt-sm pb-2"}`}>
+            <div className={`section ${!isMobile ? "pt-md" : "pt-sm pb-2"}`} style={{ flex: "1 0 auto" }}>
               <Container>
                 <Row className="d-flex justify-content-center">
                   <Col md="4" sm="auto" className="d-flex justify-content-center" style={isMobile ? { height: "120px" } : null}>
@@ -188,7 +188,7 @@ class Artist extends React.Component {
                 </Row>
               </Container>
             </div>
-            <div className="social-line social-line-big-icons mb-md pt-1 pb-0">
+            <div className="social-line social-line-big-icons mb-md pt-1 pb-0" style={{ flex: "1 0 auto" }}>
               <Container>
                 {columnizedSocials.map((row, i) => (
                   <Row className={`d-flex justify-content-center ${i != 0 && !isMobile ? "mt-2" : ""}`}>
@@ -214,7 +214,7 @@ class Artist extends React.Component {
             <h1>Loading...</h1>
           </>
         }
-        {/*<Footer />*/}
+        <Footer style={{ flex: "none" }} />
       </div>
       <TipJarModal
         isVisible={this.state.displayTipJarModal}

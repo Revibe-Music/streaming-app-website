@@ -16,7 +16,6 @@
  */
 
 /*    Custom Revibe Styling for Specific Pages      */
-
 @font-face {
   font-family: "FuturaDemi";
   src: url("../fonts/FuturaPTDemi.otf");
@@ -58,4 +57,18 @@
   .blog-post .social-line-big-icons [class*="col-"] {
     border-right: 0
   }
+}
+
+body.artist-page div#root .wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
 }

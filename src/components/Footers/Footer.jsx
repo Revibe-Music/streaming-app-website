@@ -38,7 +38,7 @@ class Footer extends React.Component {
         <footer className="footer">
           <Container>
             <Row>
-              <Col md="3">
+              <Col md="3"> 
                 <NavLink to="/home" tag={Link}>
                   <img src={require("../../assets/img/revibetransparent.png")} style={{ width: 175 }} className="mt-4" />
                 </NavLink>
