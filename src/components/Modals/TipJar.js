@@ -77,7 +77,7 @@ class TipJarModal extends Component {
 
   openVenmo() {
     this.revibe.recordTip(this.props.artist.artist_id, this.state.amount, "venmo")
-    var win = window.open(`https://venmo.com/paycharge?txn=pay&recipients=${this.props.venmoHandle}&amount=${this.state.amount}&note=Supporting local artists through Revibe`, '_blank');
+    var win = window.open(`https://venmo.com/${this.props.venmoHandle}?txn=pay&amount=${this.state.amount}&note=Supporting local artists through Revibe`, '_blank');
     win.focus();
   }
 
