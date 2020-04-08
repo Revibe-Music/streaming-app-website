@@ -204,6 +204,15 @@ export default class RevibeAPI {
     return await this._request(`content/public/${id}`, null, "GET", false)
   }
 
+  async recordTip(artistId, amount, service, other=false) {
+    var data = {
+      service: service,
+      amount: amount,
+      other: other,
+    }
+    var response = await this._request(`content/public/artists/donate/${artistId}/`, data, "POST",false)
+  }
+
   ////////////////////////////////////
   //////////// USER DATA /////////////
   ////////////////////////////////////

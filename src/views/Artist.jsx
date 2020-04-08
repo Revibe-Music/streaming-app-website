@@ -38,6 +38,7 @@ import { FaExternalLinkAlt, FaTwitter, FaInstagram, FaFacebook, FaApple, FaSpoti
 // core components
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
+import TipJarModal from "components/Modals/TipJar.js";
 import MetaHelmet from "components/MetaHelmet/MetaHelmet.jsx"
 import RevibeAPI from "api/revibe"
 import history from "helpers/history";
@@ -52,10 +53,14 @@ class Artist extends React.Component {
 
     this.state = {
       isLoaded: false,
-      artist: null
+      artist: null,
+      showTipJar: false,
+      displayTipJarModal: false,
+      venmoHandle: "",
+      cashAppHandle: ""
     }
   }
-  
+
   async componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -63,11 +68,17 @@ class Artist extends React.Component {
     document.body.classList.add("artist-page");
 
     var res = await revibe.getRelinkArtist(this.props.match.params.id)
-
     if (res.status === 200) {
+      var artist = res.data
+      if(artist.social_media.filter(x => x.social_media === "venmo").length > 0 ) {
+        this.setState({showTipJar: true, venmoHandle: artist.social_media.filter(x => x.social_media === "venmo")[0].handle})
+      }
+      if(artist.social_media.filter(x => x.social_media === "cashapp").length > 0) {
+        this.setState({showTipJar: true, cashAppHandle: artist.social_media.filter(x => x.social_media === "cashapp")[0].handle})
+      }
       this.setState({
         isLoaded: true,
-        artist: res.data
+        artist: artist
       })
     } else
       history.push({ pathname: "/" + res.data.status_code, state: res.data })
@@ -114,11 +125,9 @@ class Artist extends React.Component {
     var socials = [], colSize
 
     if(artist){
-      console.log(artist)
-      var sortedSocials = artist.social_media.sort((a, b) => a.order - b.order)
+      var sortedSocials = artist.social_media.filter(x => x.social_media !== "venmo" && x.social_media !== "cashapp").sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0))
 
       sortedSocials.forEach(elem => socials.push(this.processSocial(elem)))
-      //console.log(socials)
 
       var columnizedSocials = []
       const linksPerCol = 3
@@ -128,19 +137,16 @@ class Artist extends React.Component {
         let rowIndex = Math.floor(i/linksPerCol)
         let colIndex = (i % linksPerCol)
 
-        console.log({ rowIndex, colIndex })
-
         if(colIndex == 0) columnizedSocials[rowIndex] = []
-        
+
         columnizedSocials[rowIndex][colIndex] = socials[i]
       }
 
-      //console.log(columnizedSocials)
     }
 
     return (
-    <> 
-      <MetaHelmet 
+    <>
+      <MetaHelmet
         title={artist ? artist.name : "Artist Page"}
         url={window.location}
         image={artist && artist.images.length > 0 ? (artist.images[2] ? artist.images[2].url : artist.images[0].url) : null}
@@ -166,6 +172,19 @@ class Artist extends React.Component {
                       <h6 className="description">{artist.bio}</h6>
                     </div>
                   </Col>
+
+                  {this.state.showTipJar ?
+                    <Col md="4" className="d-flex justify-content-center">
+                    <div className="mt-auto mb-auto text-center">
+                      <button style={{alignSelf: "flex-end",alignItems: "center",justifyContent: "center",flexDirection: "column",backgroundColor: "transparent", borderWidth: 0}} onClick={() => this.setState({displayTipJarModal: true})}>
+                        <img src={require("assets/img/tip_jar.png")} style={isMobile ? { width: "20%", height: "auto", margin: "10%" } : { width: "25%", height: "auto" } } />
+                      </button>
+                    </div>
+                    </Col>
+
+                  :
+                    null
+                  }
                 </Row>
               </Container>
             </div>
@@ -197,6 +216,13 @@ class Artist extends React.Component {
         }
         {/*<Footer />*/}
       </div>
+      <TipJarModal
+        isVisible={this.state.displayTipJarModal}
+        onClose={() => this.setState({displayTipJarModal: false})}
+        artist={this.state.artist}
+        venmoHandle={this.state.venmoHandle}
+        cashAppHandle={this.state.cashAppHandle}
+      />
     </>
     )
   }

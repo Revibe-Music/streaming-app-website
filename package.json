@@ -27,6 +27,7 @@
     "react-scripts": "^3.4.1",
     "react-select": "2.4.3",
     "react-slick": "0.24.0",
+    "react-svg": "^11.0.17",
     "react-tagsinput": "3.19.0",
     "reactstrap": "8.0.0",
     "sass": "^1.26.3",
