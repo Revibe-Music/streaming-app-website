@@ -97,7 +97,7 @@ class Artist extends React.Component {
       ReactGA.event({
         category: 'Relink',
         action: obj.artist,
-        label: obj.social
+        label: obj.socialId
       })
     }
 
@@ -111,31 +111,31 @@ class Artist extends React.Component {
   processSocial(socialObj) {
     switch(socialObj.social_media) {
       case "twitter":
-        return { icon: <FaTwitter fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaTwitter fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "instagram":
-        return { icon: <FaInstagram fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaInstagram fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "facebook":
-        return { icon: <FaFacebook fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaFacebook fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "apple_music":
-        return { icon: <FaApple fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaApple fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "spotify":
-        return { icon: <FaSpotify fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaSpotify fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "amazon_music":
-        return { icon: <FaAmazon fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaAmazon fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "soundcloud":
-        return { icon: <FaSoundcloud fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaSoundcloud fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "google_play_music":
-        return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "youtube":
-        return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "tidal":
-        return { icon: <Icon icon="tidal" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <Icon icon="tidal" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, socialId: socialObj.id }
       case "cashapp":
-        return { icon: <Icon icon="cashapp" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <Icon icon="cashapp" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, socialId: socialObj.id }
       case "venmo":
-        return { icon: <Icon icon="venmo" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <Icon icon="venmo" width="24px" height="24px" color="#7248BD" />, link: socialObj.handle, socialId: socialObj.id }
       default:
-        return { icon: <p style={{ textSize: "24px" }} className="text-primary" >{socialObj.social_media}</p>, link: socialObj.handle, social: socialObj.social_media }
+        return { icon: <p style={{ textSize: "24px" }} className="text-primary" >{socialObj.social_media}</p>, link: socialObj.handle, socialId: socialObj.id }
     }
   }
 
@@ -217,7 +217,7 @@ class Artist extends React.Component {
                       <Button
                         className="btn-simple btn-icon btn-footer"
                         color="primary"
-                        onClick={e => this.analyticsClick(e, { artist: artist.name, social: col.social }, col.link, true)}
+                        onClick={e => this.analyticsClick(e, { artist: artist.name, socialId: col.socialId }, col.link, true)}
                         href={col.link}
                         target="_blank"
                       >
