@@ -89,7 +89,7 @@ class Artist extends React.Component {
     document.body.classList.remove("artist-page");
   }
 
-  analyticsClick = (e, obj, href, isExternal) => {
+  analyticsClick = (e, obj, link) => {
     e.preventDefault()
     const hostname = window && window.location && window.location.hostname;
 
@@ -101,11 +101,8 @@ class Artist extends React.Component {
       })
     }
 
-    if(isExternal) {
-      var win = window.open(href, "_blank")
-      win.focus()
-    } else
-      window.location.href = href
+    var win = window.open(link, "_blank")
+    win.focus()
   }
 
   processSocial(socialObj) {
@@ -116,15 +113,15 @@ class Artist extends React.Component {
         return { icon: <FaInstagram fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "facebook":
         return { icon: <FaFacebook fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
-      case "apple_music":
+      case "applemusic": case "apple_music":
         return { icon: <FaApple fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "spotify":
         return { icon: <FaSpotify fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
-      case "amazon_music":
+      case "amazonmusic": case "amazon_music":
         return { icon: <FaAmazon fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "soundcloud":
         return { icon: <FaSoundcloud fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
-      case "google_play_music":
+      case "googleplaymusic": case "google_play_music":
         return { icon: <FaGooglePlay fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
       case "youtube":
         return { icon: <FaYoutube fontSize="24px" />, link: socialObj.handle, socialId: socialObj.id }
@@ -217,7 +214,7 @@ class Artist extends React.Component {
                       <Button
                         className="btn-simple btn-icon btn-footer"
                         color="primary"
-                        onClick={e => this.analyticsClick(e, { artist: artist.name, socialId: col.socialId }, col.link, true)}
+                        onClick={e => this.analyticsClick(e, { artist: artist.name, socialId: `${col.socialId}` }, col.link)}
                         href={col.link}
                         target="_blank"
                       >
