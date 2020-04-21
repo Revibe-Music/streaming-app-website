@@ -26,6 +26,9 @@ import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-pro-react.scss?v1.0.0";
 import "assets/css/revibe.css";
 
+import { builder, BuilderComponent } from '@builder.io/react';
+builder.init("9f839cd6c49b4dc0966d1d4ce892eecd");
+
 const trackingId = "UA-101183111-2";
 ReactGA.initialize(trackingId);
 

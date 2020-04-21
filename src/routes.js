@@ -13,6 +13,7 @@ import Instagram from "views/Instagram.jsx";
 import Artist from "views/Artist";
 import Error400 from "views/Error400";
 import Error404 from "views/Error404";
+import CatchAllPage from "views/CatchAll";
 
 
 export default (
@@ -25,6 +26,7 @@ export default (
     <Route path="/instagram" render={props => <Instagram {...props} />} />
     <Route path="/relink/:id" render={props => <Artist {...props} />} />
     <Route path="/404" render={props => <Error404 {...props} />} />
+    <Route path="/page/*" component={CatchAllPage} />
     {/*<Route path="/login" render={props => <Login {...props} />} />
     <Route path="/register" render={props => <Register {...props} />} />*/}
     <Redirect from="/" exact to="/home" />

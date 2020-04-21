@@ -36,6 +36,7 @@ import {
   Col,
   UncontrolledTooltip
 } from "reactstrap";
+import { Builder } from '@builder.io/react';
 
 class ScrollNavbar extends React.Component {
   componentDidMount() {
@@ -128,5 +129,10 @@ class ScrollNavbar extends React.Component {
     );
   }
 }
+
+Builder.registerComponent(ScrollNavbar, {
+  name: "Scroll Navbar",
+  inputs: []
+})
 
 export default ScrollNavbar;
