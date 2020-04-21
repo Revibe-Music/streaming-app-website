@@ -89,7 +89,7 @@ class ScrollNavbar extends React.Component {
                 style={isMobile ? {width: "100%"} : {}}
               >
                 <NavLink
-                  href="/blogs"
+                  href="/blog"
                   style={isMobile ? {width: "100%"} : {}}
                   className={`${isMobile ? "d-block text-center" : ""}`}
                 >

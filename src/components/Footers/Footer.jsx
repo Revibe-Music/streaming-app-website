@@ -67,7 +67,7 @@ class Footer extends React.Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/blogs" tag={Link} className="ml-1">
+                      <NavLink to="/blog" tag={Link} className="ml-1">
                         Blog
                       </NavLink>
                     </li>
