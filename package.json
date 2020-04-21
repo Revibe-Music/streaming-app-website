@@ -24,6 +24,7 @@
     "react-mailchimp-subscribe": "^2.1.0",
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
+    "react-router-sitemap": "^1.2.0",
     "react-scripts": "^3.4.1",
     "react-select": "2.4.3",
     "react-slick": "0.24.0",
@@ -39,6 +40,10 @@
     "@types/googlemaps": "3.30.20",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.8.17",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "typescript": "3.4.5"
   },
   "scripts": {
@@ -50,7 +55,8 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-sass": "node-sass src/assets/scss/blk-design-system-pro-react.scss src/assets/css/blk-design-system-pro-react.css",
     "minify-sass": "node-sass src/assets/scss/blk-design-system-pro-react.scss src/assets/css/blk-design-system-pro-react.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/blk-design-system-pro-react.scss src/assets/css/blk-design-system-pro-react.css --source-map true"
+    "map-sass": "node-sass src/assets/scss/blk-design-system-pro-react.scss src/assets/css/blk-design-system-pro-react.css --source-map true",
+    "sitemap": "babel-node src/sitemap-generator.js"
   },
   "eslintConfig": {
     "extends": "react-app"

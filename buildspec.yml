@@ -25,6 +25,8 @@ phases:
       # - yarn test
 
       # build
+      - echo Creating sitemap...
+      - yarn sitemap
       - echo Building...
       - yarn build
 

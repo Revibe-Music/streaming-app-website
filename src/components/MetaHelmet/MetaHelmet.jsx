@@ -33,7 +33,7 @@ const MetaHelmet = props => {
       <meta property="og:description" content={props.description ? props.desctiption : "Stream everything in one place."} />
       <meta property="og:image" content={props.image ? props.image : previewImg} />
       
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:card" content={props.cardSize ? props.cardSize : "summary_large_image"} />
       <meta property="twitter:url" content={props.url} />
       <meta property="twitter:title" content={props.title ? props.title : "Revibe"} />
       <meta property="twitter:description" content={props.description ? props.desctiption : "Stream everything in one place."} />
