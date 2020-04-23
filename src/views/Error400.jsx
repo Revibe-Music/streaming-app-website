@@ -25,7 +25,6 @@ import {
 
 // core components
 import Footer from "components/Footers/Footer.jsx";
-import history from "helpers/history";
 
 class Error400 extends React.Component {
 
@@ -34,13 +33,13 @@ class Error400 extends React.Component {
   }
 
   render() {
-    if(!this.props.location.state)
-      history.push("/")
+    if(this.props.location.state === undefined)
+      window.location.href = "/"
 
     const { state } = this.props.location
 
     if(!state.status_code || !state.detail)
-      history.push("/")
+    window.location.href = "/"
 
     return (
       <>

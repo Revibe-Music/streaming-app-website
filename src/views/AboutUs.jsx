@@ -37,6 +37,7 @@ import {
 import ScrollNavbar from "components/Navbars/ScrollNavbar.jsx";
 import Footer from "components/Footers/Footer.jsx";
 
+import { BuilderComponent } from '@builder.io/react';
 
 const items = [
   {
@@ -322,6 +323,11 @@ class AboutUs extends React.Component {
                       </div>
                     </Col>
                   </Row>
+                </Col>
+              </Row>
+              <Row>
+                <Col md="6" className="ml-0 mr-auto">
+                  <BuilderComponent modelName="component" />
                 </Col>
               </Row>
             </Container>

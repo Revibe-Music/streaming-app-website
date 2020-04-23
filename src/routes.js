@@ -27,6 +27,8 @@ export default (
     <Route path="/relink/:id" render={props => <Artist {...props} />} />
     <Route path="/404" render={props => <Error404 {...props} />} />
     <Route path="/page/*" component={CatchAllPage} />
+    <Redirect from="/pages/instagram" to="/instagram" />
+    <Redirect from="/pages/contact-us" to="/contact" />
     {/*<Route path="/login" render={props => <Login {...props} />} />
     <Route path="/register" render={props => <Register {...props} />} />*/}
     <Redirect from="/" exact to="/home" />
