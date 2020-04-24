@@ -25,19 +25,19 @@ const MetaHelmet = props => {
       <title>{props.title ? props.title : "Revibe"}</title>
       <meta name="title" content={props.title ? props.title : "Revibe"} />
       <meta name="description" content={props.description ? props.desctiption : "Stream everything in one place."} />
-      <meta name="image" content={props.image ? props.image : previewImg} />
+      <meta name="image" content={props.image ? props.image : `https://revibe.tech${previewImg}`} />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={props.url} />
       <meta property="og:title" content={props.title ? props.title : "Revibe"} />
       <meta property="og:description" content={props.description ? props.desctiption : "Stream everything in one place."} />
-      <meta property="og:image" content={props.image ? props.image : previewImg} />
+      <meta property="og:image" content={props.image ? props.image : `https://revibe.tech${previewImg}`} />
       
       <meta property="twitter:card" content={props.cardSize ? props.cardSize : "summary_large_image"} />
       <meta property="twitter:url" content={props.url} />
       <meta property="twitter:title" content={props.title ? props.title : "Revibe"} />
       <meta property="twitter:description" content={props.description ? props.desctiption : "Stream everything in one place."} />
-      <meta property="twitter:image" content={props.image ? props.image : previewImg} />
+      <meta property="twitter:image" content={props.image ? props.image : `https://revibe.tech${previewImg}`} />
     </Helmet>
   )
 }
