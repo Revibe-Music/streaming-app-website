@@ -325,11 +325,6 @@ class AboutUs extends React.Component {
                   </Row>
                 </Col>
               </Row>
-              <Row>
-                <Col md="6" className="ml-0 mr-auto">
-                  <BuilderComponent modelName="component" />
-                </Col>
-              </Row>
             </Container>
             </div>
           </div>

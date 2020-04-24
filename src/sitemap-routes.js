@@ -10,7 +10,7 @@ export default (
     <Route path="/contact" />
     <Route path="/instagram" />
     <Route path="/relink/:id" />
-    <Route path="/404" />} />
+    <Route path="/404" />
     {/*<Route path="/login" render={props => <Login {...props} />} />
     <Route path="/register" render={props => <Register {...props} />} />*/}
   </Switch>
