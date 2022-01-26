@@ -12,7 +12,7 @@
 <!-- PROJECT SHIELDS -->
 <div align="center">
   
-[![Contributors][contributors-shield]][contributors-url] [![MIT License][license-shield]][license-url] ![archive-shield] ![top-languages-shield] ![languages-count-shield]  [![Stars][stars-shield]][stars-url] [![Forks][forks-shield]][forks-url]
+[![Contributors][contributors-shield]][contributors-url] [![MIT License][license-shield]][license-url] ![archive-shield] ![top-languages-shield] ![languages-count-shield] 
 
 </div>
 
@@ -107,13 +107,13 @@ Sign In            |  Sidebar
 
 <!-- CONTRIBUTING -->
 ## Contributors
-[![Contributors][contributors-shield]][contributors-url] 
 
-Product Manager / Designer - Kayne Lynn
 
 Lead Developer - Noah Templet
 
 Developer - Riley Stephens
+
+Product Manager / Designer - Kayne Lynn
 
 
 ***This project is no longer maintained.*** Please feel free to fork and continue the project!
@@ -125,7 +125,6 @@ Developer - Riley Stephens
 
 <!-- LICENSE -->
 ## License
-[![MIT License][license-shield]][license-url]
 
 All of Revibe's public, archived repositories use the MIT License. See `LICENSE.txt` for more information.
 
